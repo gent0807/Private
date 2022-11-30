@@ -19,7 +19,7 @@
 	try{
 		String jdbcDriver="jdbc:mysql://localhost:3306/privatedb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf-8";
 		String dbUser="root";
-		String dbPass="1234";
+		String dbPass="loopholesub0807$&!";
 		conn=DriverManager.getConnection(jdbcDriver, dbUser, dbPass);//DB연결 (DB서버주소 /DB명, 계정, 비번 )
 		stmt=conn.createStatement();//쿼리를 실행할 statement 객체 생성
 		ResultSet rs=stmt.executeQuery("select * from membertbl;");
