@@ -35,10 +35,10 @@
 		</form>
 		<br>
 		<hr style="width: 18%;">
-		<form id="form" action="module/insertUserProcess.jsp" method="post">
+		<form id="form" action="Insert.do" method="post">
 			<h1>이메일</h1>
-			<input id="emailFront" type="text" name="memberIdFront">&nbsp;@
-			<select id ="emailBack2" style="width:190px; height:21px; font-size:14px;" name="memberIdBack">
+			<input id="emailFront" type="text" name="memberidfront">&nbsp;@
+			<select id ="emailBack2" style="width:190px; height:21px; font-size:14px;" name="memberidback">
 				<option value="notproper" selected disabled>선택해주세요</option>
 				<option value="naver.com">naver.com</option>
 				<option value="gmail.com">gmail.com</option>
@@ -48,7 +48,7 @@
 				<option value="outlook.com">outlook.com</option>
 				<option value="self">직접 입력</option>
 			</select>
-			<input id="emailBack1" type="text" name="memberIdBackSelf" placeholder="직접입력" style="width:0px; heigtht:0px; visibility:hidden;"><br>
+			<input id="emailBack1" type="text" name="memberidbackself" placeholder="직접입력" style="width:0px; heigtht:0px; visibility:hidden;"><br>
 			<p id="p1" style="display:block"></p>
 			<p id="p2" style="display:none"></p>
 			<p id="p3" style="display:none"></p>

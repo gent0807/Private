@@ -28,7 +28,6 @@
 	PreparedStatement pstmt=null;
 
 	try{
-		session.setAttribute("SEGMENT", "secondSegment.jsp");
 		String jdbcDriver="jdbc:mysql://localhost:3306/privatedb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf-8";
 		String dbUser="root";
 		String dbPass="loopholesub0807$&!";
@@ -38,7 +37,6 @@
 		pstmt.setString(2, password);
 		pstmt.setString(3, nickname);
 		pstmt.executeUpdate();
-		session.setAttribute("img","user.png");
 	
 	}catch(Exception e){
 	
@@ -46,7 +44,8 @@
 		conn.close();
 		pstmt.close();
 	}
-
+	session.setAttribute("SEGMENT", "secondSegment.jsp");
+	session.setAttribute("img","user.png");
 	String fixSector=(String)session.getAttribute("fixSector");
 	String fixSectorSub=(String)session.getAttribute("fixSectorSub");
 	String product=(String)session.getAttribute("product");

@@ -30,7 +30,7 @@
 		<hr style="width: 18%">
 		<br>
 		<br>
-		<form action="module/loginProcess.jsp" method="post">
+		<form action="Login.do" method="post">
 			Email : <input type="text" name="memberid"><br>
 			<p style=<%=idCheckVisible %>>존재하지 않는 아이디입니다.</p>
 			password : <input type="password" name="password"><br>
