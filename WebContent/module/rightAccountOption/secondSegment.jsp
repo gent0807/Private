@@ -130,7 +130,7 @@
 		let img='${img}';
 		let mode=null;
 		let btn1=document.getElementById("user");
-		let btn2=document.getElementById("writing")
+		let btn2=document.getElementById("writing");
 		let userModeList=document.getElementById("userMode");
 		let managerModeList=document.getElementById("managerMode");
 		let userWritingList=document.getElementById("userWriting");

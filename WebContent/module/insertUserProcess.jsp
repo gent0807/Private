@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%	
-	session.setAttribute("SEGMENT", "secondSegment.jsp");
+	
 	
 	request.setCharacterEncoding("utf-8");
 	
@@ -28,6 +28,7 @@
 	PreparedStatement pstmt=null;
 
 	try{
+		session.setAttribute("SEGMENT", "secondSegment.jsp");
 		String jdbcDriver="jdbc:mysql://localhost:3306/privatedb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf-8";
 		String dbUser="root";
 		String dbPass="loopholesub0807$&!";
@@ -37,6 +38,7 @@
 		pstmt.setString(2, password);
 		pstmt.setString(3, nickname);
 		pstmt.executeUpdate();
+		session.setAttribute("img","user.png");
 	
 	}catch(Exception e){
 	
