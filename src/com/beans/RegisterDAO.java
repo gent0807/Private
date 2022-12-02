@@ -10,6 +10,10 @@ public class RegisterDAO {
 	
 	final String USER_INSERT="insert into membertbl values(?, ?, ?);";
 	final String USER_LIST="select * from membertbl;";
+	final String PRODUCER_INSERT="insert into producertbl values(?,?,?);";
+	final String PRODUCER_LIST="select * from producertbl";
+	final String EXPERT_INSERT="insert into experttbl values(?,?,?);";
+	final String EXPERT_LIST="select * from experttbl";		
 	
 	public String makeId(String memberidfront, String memberidback, String memberidbackself){
 		String memberid=null;
@@ -79,5 +83,15 @@ public class RegisterDAO {
 		return check;
 		
 		
+	}
+	
+	public void insertProducer(RegisterDTO mem) throws SQLException{
+		conn=JDBCUtil.getConnection(); // 같은 패키지에 있는 클래스는 import 작업이 불필요
+		pstmt=conn.prepareStatement(PRODUCER_INSERT);
+	}
+	
+	public void insertExpert(RegisterDTO mem) throws SQLException{
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(EXPERT_INSERT);
 	}
 }

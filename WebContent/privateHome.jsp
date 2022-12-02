@@ -1,43 +1,43 @@
+<%@page import="com.beans.RegisterDTO"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%> 	
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean class="com.beans.RegisterDTO" id="firstBowl" scope="session"/>
+<jsp:useBean class="com.beans.RegisterDAO" id="firstConnect" scope="session"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+	body{
+		text-align:center;
+	}
+</style>
+<title>Private</title>
+<link rel="shortcut icon" href="img/daram.ico">
+</head>
+<body>
 <%	
-	Class.forName("com.mysql.cj.jdbc.Driver");
-
-	Connection conn=null;   
-	Statement stmt=null;
 	ArrayList<String> emails= new ArrayList<String>(); 
 	ArrayList<String> nicknames= new ArrayList<String>(); 
 	ArrayList<String> passwords= new ArrayList<String>(); 
+	ArrayList<RegisterDTO> mList=new ArrayList<RegisterDTO>(); 
+	mList=firstConnect.selectMemberList();
 	
-	try{
-		String jdbcDriver="jdbc:mysql://localhost:3306/privatedb?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf-8";
-		String dbUser="root";
-		String dbPass="loopholesub0807$&!";
-		conn=DriverManager.getConnection(jdbcDriver, dbUser, dbPass);//DB연결 (DB서버주소 /DB명, 계정, 비번 )
-		stmt=conn.createStatement();//쿼리를 실행할 statement 객체 생성
-		ResultSet rs=stmt.executeQuery("select * from membertbl;");
-		while(rs.next()){
-			emails.add(rs.getString("memberid"));	
-			nicknames.add(rs.getString("nickname"));
-			passwords.add(rs.getString("password"));
-		}
-		session.setAttribute("emails", emails);
-		session.setAttribute("nicknames", nicknames);
-	
-	
-	}catch(Exception e){
-	
+	for(int i=0; i<mList.size(); i++){
+		emails.add(mList.get(i).getMemberid());
+		nicknames.add(mList.get(i).getNickname());
 	}
-	finally{
-		conn.close();
-		stmt.close();
-	}
+	
+	session.setAttribute("emails", emails);
+	session.setAttribute("nicknames", nicknames);
+	
+	
 	request.setCharacterEncoding("utf-8");
 
 	String contentPage=request.getParameter("CONTENTPAGE");
@@ -89,19 +89,6 @@
 		footeris="display:block";
 	}
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<style type="text/css">
-	body{
-		text-align:center;
-	}
-</style>
-<title>Private</title>
-<link rel="shortcut icon" href="img/daram.ico">
-</head>
-<body>
   		<header>
   			<jsp:include page="module/top.jsp" flush="false"/>
   		</header>

@@ -7,6 +7,9 @@ public class RegisterDTO {
 	private String password;
 	private String nickname;
 	private String memberid;
+	private String storeid;
+	private String storename;
+	private String expertid;
 	
 	public String getMemberidfront() {
 		return memberidfront;
