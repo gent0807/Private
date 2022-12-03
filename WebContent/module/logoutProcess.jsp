@@ -3,8 +3,8 @@
 <% 
 	session.setAttribute("SEGMENT", "firstSegment.jsp");
 	session.setAttribute("PADDING","padding-right:550px");
-	session.setAttribute("PADDINGSUB","padding-right:512px");
-	session.setAttribute("PADDINGSUB2","padding-right:552px");
+	session.setAttribute("PADDINGSUB","padding-right:150px");
+	session.setAttribute("PADDINGSUB2","padding-right:193px");
 	session.setAttribute("idCheckVisible", "visibility:hidden");
 	session.setAttribute("passwordCheckVisible", "visibility:hidden");
 %> 

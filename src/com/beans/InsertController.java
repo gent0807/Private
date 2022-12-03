@@ -42,11 +42,15 @@ public class InsertController extends HttpServlet {
 		
 		RegisterDAO rd=new RegisterDAO();
 		try {
-			rd.insertMember(rt);
+			rd.insertMember(rt);//*******
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		HttpSession session=request.getSession();
+		session.setAttribute("SEGMENT", "secondSegment.jsp");//
+		session.setAttribute("PADDING","padding-right:640px");
+		session.setAttribute("PADDINGSUB","padding-right:220px");
+		session.setAttribute("PADDINGSUB2","padding-right:253px");
 		session.setAttribute("SEGMENT", "secondSegment.jsp");
 		session.setAttribute("img","user.png");
 		String fixSector=(String)session.getAttribute("fixSector");
@@ -118,6 +122,18 @@ public class InsertController extends HttpServlet {
 			}
 			else if(product.equals("acceptance")){
 				contentPage="storeCategoryAcceptance.jsp";
+			}
+			else if(product.equals("life")){
+				contentPage="storeCategoryLife.jsp";
+			}
+			else if(product.equals("live")){
+				contentPage="storeCategoryLive.jsp";
+			}
+			else if(product.equals("animal")){
+				contentPage="storeCategoryAnimal.jsp";
+			}
+			else if(product.equals("health")){
+				contentPage="storeCategoryHealth.jsp";
 			}
 			
 		}

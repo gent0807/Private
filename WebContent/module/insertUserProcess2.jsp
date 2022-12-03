@@ -87,6 +87,12 @@
 			else if(product.equals("acceptance")){
 				contentPage="storeCategoryAcceptance.jsp";
 			}
+			else if(product.equals("life")){
+				contentPage="storeCategoryLife.jsp";
+			}
+			else if(product.equals("live")){
+				contentPage="storeCategoryLive.jsp";
+			}
 			
 		}
 		response.sendRedirect("../privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);

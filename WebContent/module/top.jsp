@@ -13,12 +13,12 @@
 	
 	String paddingSub=(String)session.getAttribute("PADDINGSUB");
 	if(paddingSub==null){
-		paddingSub="padding-right:512px";
+		paddingSub="padding-right:130px";
 	}
 	
 	String paddingSub2=(String)session.getAttribute("PADDINGSUB2");
 	if(paddingSub2==null){
-		paddingSub2="padding-right:552px";
+		paddingSub2="padding-right:163px";
 	}
 %>
 <!DOCTYPE html>
@@ -82,7 +82,11 @@
   		<a id="digital" href="privateHome.jsp?CONTENTPAGE=storeCategoryDigitalDevice.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=digital&FIXCATEGORY=digital"><img alt="digital" width="65" height="60" src="img/digital1.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;
   		<a id="light" href="privateHome.jsp?CONTENTPAGE=storeCategoryLighting.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=light&FIXCATEGORY=light"><img alt="light" width="65" height="60" src="img/light.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;
   		<a id="accept" href="privateHome.jsp?CONTENTPAGE=storeCategoryAcceptance.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=acceptance&FIXCATEGORY=acceptance"><img alt="accept" width="65" height="60" src="img/accept.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<a id="kitchen" href="privateHome.jsp?CONTENTPAGE=storeCategoryKitchen.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=kitchen&FIXCATEGORY=kitchen"><img alt="kitchen" width="65" height="60" src="img/kitchen1.png" style="vertical-align:middle;"></a>	
+  		<a id="kitchen" href="privateHome.jsp?CONTENTPAGE=storeCategoryKitchen.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=kitchen&FIXCATEGORY=kitchen"><img alt="kitchen" width="65" height="60" src="img/kitchen1.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="life" href="privateHome.jsp?CONTENTPAGE=storeCategoryLife.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=life&FIXCATEGORY=life"><img alt="life" width="65" height="60" src="img/life.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="live" href="privateHome.jsp?CONTENTPAGE=storeCategoryLive.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=live&FIXCATEGORY=live"><img alt="live" width="65" height="60" src="img/live.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="animal" href="privateHome.jsp?CONTENTPAGE=storeCategoryAnimal.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=animal&FIXCATEGORY=animal"><img alt="animal" width="65" height="60" src="img/dog.png" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="health" href="privateHome.jsp?CONTENTPAGE=storeCategoryHealth.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=health&FIXCATEGORY=health"><img alt="health" width="65" height="60" src="img/health.png" style="vertical-align:middle;"></a>
   	</div>  	
   	<div id="storeCategoryMenu" style=<%=paddingSub %>>
   		<a id="storeCategoryFurniture" href="privateHome.jsp?CONTENTPAGE=storeCategoryFurniture.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=furniture&FIXCATEGORY=furniture" style="font-size:1.0em;">가구</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -90,7 +94,11 @@
   		<a id="storeCategoryDigital" href="privateHome.jsp?CONTENTPAGE=storeCategoryDigitalDevice.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=digital&FIXCATEGORY=digital" style="font-size:1.0em;">가전/디지털</a>&nbsp;&nbsp;&nbsp;&nbsp;
   		<a id="storeCategoryLight" href="privateHome.jsp?CONTENTPAGE=storeCategoryLighting.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=light&FIXCATEGORY=light" style="font-size:1.0em;">조명</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   		<a id="storeCategoryAccept" href="privateHome.jsp?CONTENTPAGE=storeCategoryAcceptance.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=acceptance&FIXCATEGORY=acceptance" style="font-size:1.0em;">수납정리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<a id="storeCategoryKitchen" href="privateHome.jsp?CONTENTPAGE=storeCategoryKitchen.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=kitchen&FIXCATEGORY=kitchen" style="font-size:1.0em;">주방용품</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="storeCategoryKitchen" href="privateHome.jsp?CONTENTPAGE=storeCategoryKitchen.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=kitchen&FIXCATEGORY=kitchen" style="font-size:1.0em;">주방용품</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="storeCategoryLife" href="privateHome.jsp?CONTENTPAGE=storeCategoryLife.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=life&FIXCATEGORY=life" style="font-size:1.0em;">생필품</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="storeCategoryLive" href="privateHome.jsp?CONTENTPAGE=storeCategoryLive.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=live&FIXCATEGORY=live" style="font-size:1.0em;">생활용품</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="storeCategoryAnimal" href="privateHome.jsp?CONTENTPAGE=storeCategoryAnimal.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=animal&FIXCATEGORY=animal" style="font-size:1.0em;">애완용품</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a id="storeCategoryHealth" href="privateHome.jsp?CONTENTPAGE=storeCategoryHealth.jsp&FIXSECTOR=store&FIXSECTORSUB=storeCategory&SECTOR=store&PRODUCT=health&FIXCATEGORY=health" style="font-size:1.0em;">운동용품</a>&nbsp;&nbsp;
   	</div>  	
   	<hr id="line">  	
   	
@@ -135,7 +143,10 @@
   		let light=document.getElementById("light");
   		let accept=document.getElementById("accept");
   		let kitchen=document.getElementById("kitchen");
-  		
+  		let life=document.getElementById("life");
+  		let live=document.getElementById("live");
+  		let animal=document.getElementById("animal");
+  		let health=document.getElementById("health");
   		
   		let storeCategoryMenu=document.getElementById("storeCategoryMenu");
   		let storeCategoryFurniture=document.getElementById("storeCategoryFurniture");
@@ -144,6 +155,10 @@
   		let storeCategoryLight=document.getElementById("storeCategoryLight");
   		let storeCategoryAccept=document.getElementById("storeCategoryAccept");
   		let storeCategoryKitchen=document.getElementById("storeCategoryKitchen");
+  		let storeCategoryLife=document.getElementById("storeCategoryLife");
+  		let storeCategoryLive=document.getElementById("storeCategoryLive");
+  		let storeCategoryAnimal=document.getElementById("storeCategoryAnimal");
+  		let storeCategoryHealth=document.getElementById("storeCategoryHealth");
   		let line=document.getElementById("line");
   		
   		let sector='${sector}';
@@ -227,6 +242,18 @@
 				}
 				if(fixCategory=="kitchen"){
 					storeCategoryKitchen.style.color="#C62828";
+				}
+				if(fixCategory=="life"){
+					storeCategoryLife.style.color="#C62828";
+				}
+				if(fixCategory=="live"){
+					storeCategoryLive.style.color="#C62828";
+				}
+				if(fixCategory=="animal"){
+					storeCategoryAnimal.style.color="#C62828";
+				}
+				if(fixCategory=="health"){
+					storeCategoryHealth.style.color="#C62828";
 				}
 			}
 		
@@ -530,7 +557,7 @@
   	  		if(fixCategory!="furniture"){
 				storeCategoryFurniture.style.color="#760c0c";
   	  		}
-			})
+		})
 			
 		furniture.addEventListener("mouseleave",function(){
 			if(fixCategory!="furniture"){
@@ -564,7 +591,7 @@
 			if(fixCategory!="light"){
 				storeCategoryLight.style.color="#760c0c";
 			}
-			})
+		})
 			
 		light.addEventListener("mouseleave",function(){
 			if(fixCategory!="light"){
@@ -594,11 +621,59 @@
 			}
 		})
 		
+		life.addEventListener("mouseover",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="#760c0c";
+			}
+		})
+		
+		life.addEventListener("mouseleave",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="black";
+			}
+		})
+		
+		live.addEventListener("mouseover",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="#760c0c";
+			}
+		})
+		
+		live.addEventListener("mouseleave",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="black";
+			}
+		})
+		
+		animal.addEventListener("mouseover",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="#760c0c";
+			}
+		})
+		
+		animal.addEventListener("mouseleave",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="black";
+			}
+		})
+		
+		health.addEventListener("mouseover",function(){
+			if(fixCategory!="health"){
+				storeCategoryHealth.style.color="#760c0c";
+			}
+		})
+		
+		health.addEventListener("mouseleave",function(){
+			if(fixCategory!="health"){
+				storeCategoryHealth.style.color="black";
+			}
+		})
+		
 		storeCategoryFurniture.addEventListener("mouseover",function(){
   	  		if(fixCategory!="furniture"){
 				storeCategoryFurniture.style.color="#760c0c";
   	  		}
-			})
+		})
 			
 		storeCategoryFurniture.addEventListener("mouseleave",function(){
 			if(fixCategory!="furniture"){
@@ -659,6 +734,54 @@
 		storeCategoryKitechen.addEventListener("mouseleave",function(){
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="black";
+			}
+		})
+		
+		storeCategoryLife.addEventListener("mouseover",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryLife.addEventListener("mouseleave",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="black";
+			}
+		})
+		
+		storeCategoryLive.addEventListener("mouseover",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryLive.addEventListener("mouseleave",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="black";
+			}
+		})
+		
+		storeCategoryAnimal.addEventListener("mouseover",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryAnimal.addEventListener("mouseleave",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="black";
+			}
+		})
+		
+		storeCategoryHealth.addEventListener("mouseover",function(){
+			if(fixCategory!="health"){
+				storeCategoryHealth.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryHealth.addEventListener("mouseleave",function(){
+			if(fixCategory!="Health"){
+				storeCategoryHealth.style.color="black";
 			}
 		})
   		}
@@ -861,11 +984,58 @@
 			}
 		})
 		
-				storeCategoryFurniture.addEventListener("mouseover",function(){
+		life.addEventListener("mouseover",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="#760c0c";
+			}
+		})
+		
+		life.addEventListener("mouseleave",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="black";
+			}
+		})
+		live.addEventListener("mouseover",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="#760c0c";
+			}
+		})
+		
+		live.addEventListener("mouseleave",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="black";
+			}
+		})
+		
+		animal.addEventListener("mouseover",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="#760c0c";
+			}
+		})
+		
+		animal.addEventListener("mouseleave",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="black";
+			}
+		})
+		
+		health.addEventListener("mouseover",function(){
+			if(fixCategory!="health"){
+				storeCategoryHealth.style.color="#760c0c";
+			}
+		})
+		
+		health.addEventListener("mouseleave",function(){
+			if(fixCategory!="health"){
+				storeCategoryHealth.style.color="black";
+			}
+		})
+		
+		storeCategoryFurniture.addEventListener("mouseover",function(){
   	  		if(fixCategory!="furniture"){
 				storeCategoryFurniture.style.color="#760c0c";
   	  		}
-			})
+		})
 			
 		storeCategoryFurniture.addEventListener("mouseleave",function(){
 			if(fixCategory!="furniture"){
@@ -877,7 +1047,7 @@
 			if(fixCategory!="fabric"){
 				storeCategoryFabric.style.color="#760c0c";
 			}
-			})
+		})
 			
 		storeCategoryFabric.addEventListener("mouseleave",function(){
 			if(fixCategory!="fabric"){
@@ -928,11 +1098,55 @@
 				storeCategoryKitchen.style.color="black";
 			}
 		})
-  	  		
-  	  	
+		
+		storeCategoryLife.addEventListener("mouseover",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryLife.addEventListener("mouseleave",function(){
+			if(fixCategory!="life"){
+				storeCategoryLife.style.color="black";
+			}
+		})
+		
+		storeCategoryLive.addEventListener("mouseover",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="#760c0c";
+			}
+		})
+		
+		storeCategoryLive.addEventListener("mouseleave",function(){
+			if(fixCategory!="live"){
+				storeCategoryLive.style.color="black";
+			}
+		})
+		
+		storeCategoryAnimal.addEventListener("mouseover",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryAnimal.addEventListener("mouseleave",function(){
+			if(fixCategory!="animal"){
+				storeCategoryAnimal.style.color="black";
+			}
+		})
+		
+		storeCategoryHealth.addEventListener("mouseover",function(){
+			if(fixCategory!="health"){
+				storeCategoryHealth.style.color="#760c0c";
+			}
+		})
+			
+		storeCategoryHealth.addEventListener("mouseleave",function(){
+			if(fixCategory!="Health"){
+				storeCategoryHealth.style.color="black";
+			}
+		})
   		}
-  		
-  		
   		
   	</script>
 </body>

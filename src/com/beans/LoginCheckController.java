@@ -46,8 +46,8 @@ public class LoginCheckController extends HttpServlet {
 		if(check.equals("ALLOK")){
 			session.setAttribute("SEGMENT", "secondSegment.jsp");//
 			session.setAttribute("PADDING","padding-right:640px");
-			session.setAttribute("PADDINGSUB","padding-right:595px");
-			session.setAttribute("PADDINGSUB2","padding-right:635px");
+			session.setAttribute("PADDINGSUB","padding-right:220px");
+			session.setAttribute("PADDINGSUB2","padding-right:253px");
 			
 			String fixSector=(String)session.getAttribute("fixSector");
 			String fixSectorSub=(String)session.getAttribute("fixSectorSub");
@@ -117,6 +117,18 @@ public class LoginCheckController extends HttpServlet {
 				}
 				else if(product.equals("acceptance")){
 					contentPage="storeCategoryAcceptance.jsp";
+				}
+				else if(product.equals("life")){
+					contentPage="storeCategoryLife.jsp";
+				}
+				else if(product.equals("live")){
+					contentPage="storeCategoryLive.jsp";
+				}
+				else if(product.equals("animal")){
+					contentPage="storeCategoryAnimal.jsp";
+				}
+				else if(product.equals("health")){
+					contentPage="storeCategoryHealth.jsp";
 				}
 				session.setAttribute("idCheckVisible", "visibility:hidden");
 				session.setAttribute("passwordCheckVisible", "visibility:hidden");

@@ -111,6 +111,12 @@
 						else if(product.equals("acceptance")){
 							contentPage="storeCategoryAcceptance.jsp";
 						}
+						else if(product.equals("life")){
+							contentPage="storeCategoryLife.jsp";
+						}
+						else if(product.equals("live")){
+							contentPage="storeCategoryLive.jsp";
+						}
 						session.setAttribute("idCheckVisible", "visibility:hidden");
 						session.setAttribute("passwordCheckVisible", "visibility:hidden");
 						session.setAttribute("loginCheck","ok");
