@@ -3,8 +3,8 @@
 <%
 	session.setAttribute("SEGMENT", "expertSegment.jsp");
 	session.setAttribute("PADDING","padding-right:640px");
-	session.setAttribute("PADDINGSUB","padding-right:595px");
-	session.setAttribute("PADDINGSUB2","padding-right:635px");
+	session.setAttribute("PADDINGSUB","padding-right:220px");
+	session.setAttribute("PADDINGSUB2","padding-right:253px");
 %>
 <!DOCTYPE html>
 <html>

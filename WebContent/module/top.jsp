@@ -13,12 +13,12 @@
 	
 	String paddingSub=(String)session.getAttribute("PADDINGSUB");
 	if(paddingSub==null){
-		paddingSub="padding-right:130px";
+		paddingSub="padding-right:115px";
 	}
 	
 	String paddingSub2=(String)session.getAttribute("PADDINGSUB2");
 	if(paddingSub2==null){
-		paddingSub2="padding-right:163px";
+		paddingSub2="padding-right:148px";
 	}
 %>
 <!DOCTYPE html>

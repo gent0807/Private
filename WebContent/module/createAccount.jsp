@@ -51,7 +51,7 @@
 			<input id="emailBack1" type="text" name="memberidbackself" placeholder="직접입력" style="width:0px; heigtht:0px; visibility:hidden;"><br>
 			<p id="p1" style="display:block"></p>
 			<p id="p2" style="display:none"></p>
-			<p id="p3" style="display:none"></p>
+			<p id="p3" style="display:none"></p>    
 			<input id="authority" type="button" value="이메일 인증하기" disabled>
 			<h1>비밀번호</h1>
 			<input id="pass1" type="password">

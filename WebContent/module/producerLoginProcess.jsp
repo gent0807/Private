@@ -3,8 +3,8 @@
 <%
 	session.setAttribute("SEGMENT", "producerSegment.jsp");
 	session.setAttribute("PADDING","padding-right:700px");
-	session.setAttribute("PADDINGSUB","padding-right:655px");
-	session.setAttribute("PADDINGSUB2","padding-right:695px");
+	session.setAttribute("PADDINGSUB","padding-right:220px");
+	session.setAttribute("PADDINGSUB2","padding-right:253px");
 	
 %>
 <!DOCTYPE html>

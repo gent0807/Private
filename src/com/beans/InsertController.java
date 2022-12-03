@@ -47,6 +47,8 @@ public class InsertController extends HttpServlet {
 			e.printStackTrace();
 		}
 		HttpSession session=request.getSession();
+		session.setAttribute("expertIsin", "NO");
+		session.setAttribute("producerIsin", "NO");
 		session.setAttribute("SEGMENT", "secondSegment.jsp");//
 		session.setAttribute("PADDING","padding-right:640px");
 		session.setAttribute("PADDINGSUB","padding-right:220px");

@@ -83,14 +83,14 @@
 				<hr>
 				<a href="privateHome.jsp?CONTENTPAGE=myShopping.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">나의 쇼핑</li></a>
 				<hr>
-				<a href="privateHome.jsp?CONTENTPAGE=transExpert.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">전문가 신청하기</li></a>
-				<hr>
-				<a href="privateHome.jsp?CONTENTPAGE=expertLogin.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">전문가 로그인</li></a>
-				<hr>
-				<a href="privateHome.jsp?CONTENTPAGE=transProducer.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">판매자 입점 신청하기</li></a>
-				<hr>
-				<a href="privateHome.jsp?CONTENTPAGE=producerLogin.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">판매자 로그인</li></a>
-				<hr>
+				<a id="te" href="privateHome.jsp?CONTENTPAGE=transExpert.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">전문가 신청하기</li></a>
+				<hr id="teline">
+				<a id="el" href="privateHome.jsp?CONTENTPAGE=expertLogin.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">전문가 로그인</li></a>
+				<hr id="elline">
+				<a id="tp" href="privateHome.jsp?CONTENTPAGE=transProducer.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">판매자 입점 신청하기</li></a>
+				<hr id="tpline">
+				<a id="pl" href="privateHome.jsp?CONTENTPAGE=producerLogin.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>&FOOTERIS=display:none"><li style="padding-top:5px; padding-bottom:5px; font-size:17px;">판매자 로그인</li></a>
+				<hr id="plline">
 				<a href="module/logoutProcess.jsp"><li style="margin-bottom:8px; padding-top:5px; padding-bottom:5px; font-size:17px;">로그아웃</li></a>
 			</ul>
 		</div>
@@ -128,6 +128,9 @@
 	</div>	
 	<script>
 		let img='${img}';
+		let expertIsin='${expertIsin}';
+		let producerIsin='${producerIsin}';
+
 		let mode=null;
 		let btn1=document.getElementById("user");
 		let btn2=document.getElementById("writing");
@@ -135,9 +138,18 @@
 		let managerModeList=document.getElementById("managerMode");
 		let userWritingList=document.getElementById("userWriting");
 		let managerWritingList=document.getElementById("managerWriting");
+		let te=document.getElementById("te");
+		let teline=document.getElementById("teline");
+		let el=document.getElementById("el");
+		let elline=document.getElementById("elline");
+		let tp=document.getElementById("tp");
+		let tpline=document.getElementById("tpline");
+		let pl=document.getElementById("pl");
+		let plline=document.getElementById("plline");
 		
 		let list1=document.getElementById("list1");
 		let input1=document.getElementById("input1");
+		
 		
 		if (img=="user.png"){
 			mode="user";
@@ -146,6 +158,32 @@
 			mode="manager";
 		}
 		
+	if(expertIsin=="YES"){
+		te.style.display="none";
+		teline.style.display="none";
+		el.style.display="block";
+		elline.style.display="block";
+	}else if(expertIsin=="NO"){
+		te.style.display="block";
+		teline.style.display="block";
+		el.style.display="none";
+		elline.style.display="none";
+	}
+	
+	if(producerIsin=="YES"){
+		tp.style.display="none";
+		tpline.style.display="none";
+		pl.style.display="block";
+		plline.style.display="block";
+	}else if(producerIsin=="NO"){
+		tp.style.display="block";
+		tpline.style.display="block";
+		pl.style.display="none";
+		plline.style.display="none";
+	}
+	
+
+
 		$(function () {
 	        $("#user").on("click", function() {
 	        	if(mode=="user"){	        		

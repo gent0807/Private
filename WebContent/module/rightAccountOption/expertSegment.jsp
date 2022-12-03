@@ -12,8 +12,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Private</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <style>
-	#user{
+	#expert{
 		background-image: url(img/user.png);
 		background-repeat: no-repeat; 
 		background-size: contain;
@@ -25,13 +26,13 @@
 		appearance:none;
 	}
 	
-	#user:hover{
+	#expert:hover{
 		border: solid 2px;
 		border-radius: 50%;
 		border-color:#760c0c;
 	}
 	
-	#writing{
+	#expertWriting{
 		font-size:16px; 
 		vertical-align:middle; 
 		background-color:#A52A2A; 
@@ -41,7 +42,7 @@
 		color:white;
 		
 	}
-	#writing:hover{
+	#expertWriting:hover{
 		background-color:#760c0c; 
 	}
 	
@@ -69,8 +70,8 @@
 	<a href="privateHome.jsp?CONTENTPAGE=bucket.jsp&MENUBAR=none" ><img alt="장바구니" src="img/cart.png" height="28" width="28" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="privateHome.jsp?CONTENTPAGE=scrapbook.jsp&MENUBAR=none"><img alt="스크랩북" src="img/scrapbook.png" height="36" width="36" style="vertical-align:middle;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<div style="display:inline-block; position:relative; text-align:center; width:50px;">
-		<button id="user" type="button"></button>
-		<div id="userMode" style="display:none; position:absolute; z-index:999; width:230px; left:-85px;">
+		<button id="expert" type="button"></button>
+		<div id="expertMode" style="display:none; position:absolute; z-index:999; width:230px; left:-85px;">
 			<ul>
 				<a href="privateHome.jsp?CONTENTPAGE=myPage.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>"><li style="margin-top:8px; padding-top:5px; padding-bottom:5px;font-size:17px;">마이페이지</li></a>
 				<hr>
@@ -82,8 +83,8 @@
 	</div>
 	&nbsp;
 	<div style="display:inline-block; position:relative; text-align:center;  width:87px;">
-		<button id="writing" type="button">글쓰기▽</button>
-		<div id="userWriting" style="display:none; position:absolute; z-index:999; width:250px; left:-78px">
+		<button id="expertWriting" type="button">글쓰기▽</button>
+		<div id="expertWritingList" style="display:none; position:absolute; z-index:999; width:250px; left:-78px">
 			<ul>
 				<a href="privateHome.jsp?CONTENTPAGE=writeProductReview.jsp&MENUBAR=none&FIXSECTOR=<%=fixSector %>&FIXSECTORSUB=<%=fixSectorSub %>&PRODUCT=<%=product %>&FIXCATEGORY=<%=fixCategory%>"><li style="margin-top:8px"><img src="img/writingIcon1.png" style="vertical-align:middle;">상품 리뷰 쓰기</li></a>
 				<hr>
@@ -97,44 +98,30 @@
 			</ul>
 		</div>
 	</div>
-	<script type="text/javascript">
-	let btn1=document.getElementById("user");
-	let btn2=document.getElementById("writing")
-	let userModeList=document.getElementById("userMode");
-	let userWritingList=document.getElementById("userWriting");
+	<script>
+	let btn1=document.getElementById("expert");
+	let btn2=document.getElementById("expertWriting");
+	let expertModeList=document.getElementById("expertMode");
+	let expertWritingList=document.getElementById("expertWritingList");
 	
-	
-	
-	
-	
-	$(function () {
-        $("#user").on("click", function() {
-        		        		
-        		$("#userMode").slideToggle("fast");       	
-             
-        })
+	$(function (){
+        $("#expert").on("click", function() {
+        	$("#expertMode").slideToggle("fast");       	
+        });
+        $("#expertWriting").on("click", function() {
+    		$("#expertWritingList").slideToggle("fast");	
+    	});
     });
-	
-    $(function () {
-        $("#writing").on("click", function() {
-        	       		
-        		$("#userWriting").slideToggle("fast");	
-        	
-             
-        })
-    });
-    
-   
-    
+	   
     btn1.addEventListener("blur",function(){
     	setTimeout(function(){
-    		userModeList.style.display="none";
+    		expertModeList.style.display="none";
     	},0.2*1000);
     });
 	
 	btn2.addEventListener("blur",function(){
 		setTimeout(function(){
-    		userWritingList.style.display="none";
+    		expertWritingList.style.display="none";
 		},0.2*1000);
     });
 	</script>

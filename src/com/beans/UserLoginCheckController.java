@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/Login.do")
-public class LoginCheckController extends HttpServlet {
+public class UserLoginCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
@@ -27,6 +27,8 @@ public class LoginCheckController extends HttpServlet {
 		String i=request.getParameter("memberid");
 		String p=request.getParameter("password");
 		String check=null;
+		String expertIsin=null;
+		String producerIsin=null;
 		
 		RegisterDTO rt=new RegisterDTO();
 		rt.setMemberid(i);
@@ -35,15 +37,19 @@ public class LoginCheckController extends HttpServlet {
 		RegisterDAO rd=new RegisterDAO();
 		try {
 			check=rd.check(rt);
+			expertIsin=rd.expertIsin(rt);
+			producerIsin=rd.producerIsin(rt);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		HttpSession session=request.getSession();
-		session.setAttribute("userModeId", rt.getMemberid());
 		String contentPage=null;
 		if(check.equals("ALLOK")){
+			session.setAttribute("expertIsin", expertIsin);
+			session.setAttribute("producerIsin", producerIsin);
+			session.setAttribute("userModeId", rt.getMemberid());
 			session.setAttribute("SEGMENT", "secondSegment.jsp");//
 			session.setAttribute("PADDING","padding-right:640px");
 			session.setAttribute("PADDINGSUB","padding-right:220px");

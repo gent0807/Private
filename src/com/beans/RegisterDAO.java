@@ -85,13 +85,44 @@ public class RegisterDAO {
 		
 	}
 	
+	public void insertExpert(RegisterDTO mem) throws SQLException{
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(EXPERT_INSERT);
+	}
+	
+	public String expertIsin(RegisterDTO mem) throws SQLException{
+		String expertIsin="NO";
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(EXPERT_LIST);
+		rs=pstmt.executeQuery();
+		while(rs.next()) {
+			if(mem.getMemberid().equals(rs.getString("expertid"))) {
+				expertIsin="YES";
+				return expertIsin;
+			}
+		}
+		return expertIsin;
+	}
+	
 	public void insertProducer(RegisterDTO mem) throws SQLException{
 		conn=JDBCUtil.getConnection(); // 같은 패키지에 있는 클래스는 import 작업이 불필요
 		pstmt=conn.prepareStatement(PRODUCER_INSERT);
 	}
 	
-	public void insertExpert(RegisterDTO mem) throws SQLException{
+	public String producerIsin(RegisterDTO mem) throws SQLException{
+		String producerIsin="NO";
 		conn=JDBCUtil.getConnection();
-		pstmt=conn.prepareStatement(EXPERT_INSERT);
+		pstmt=conn.prepareStatement(PRODUCER_LIST);
+		rs=pstmt.executeQuery();
+		while(rs.next()) {
+			if(mem.getMemberid().equals(rs.getString("producerid"))) {
+				producerIsin="YES";
+				return producerIsin;
+			}
+		}
+		return producerIsin;
 	}
+	
+	
+	
 }
