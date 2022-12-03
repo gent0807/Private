@@ -13,6 +13,10 @@
 	if(storeNameCheckVisible==null){
 		storeNameCheckVisible="visibility:hidden";
 	}
+	String storeIdCheckVisible=(String)session.getAttribute("storeIdCheckVisible");
+	if(storeIdCheckVisible==null){
+		storeIdCheckVisible="visibility:hidden";
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -26,17 +30,19 @@
 		<br>
 		<br>		
 		<form action="module/producerLoginProcess.jsp" method="post">
-			상호명 : <input type="text" name="producerid"><br>
-			<p style=<%=storeNameCheckVisible %>>존재하지 않는 상호명 입니다.</p>
 			판매자 아이디: <input type="text" name="producerid"><br>
 			<p style=<%=idCheckVisibleP %>>존재하지 않는 판매자 아이디 입니다.</p>
 			password : <input type="password" name="password"><br>
-			<p style=<%=passwordCheckVisibleP %>>비밀번호가 일치하지 않습니다.</p>	
+			<p style=<%=passwordCheckVisibleP %>>비밀번호가 일치하지 않습니다.</p>
+			상호명 : <input type="text" name="storeName"><br>
+			<p style=<%=storeNameCheckVisible %>>등록되지 않은 상호명 입니다.</p>
+			사업자등록번호 : <input type="text" name="storeId"><br>
+			<p style=<%=storeIdCheckVisible %>>등록되지 않은 사업자등록번호입니다.</p>
 			<input type="submit" value="판매자 로그인">
 		</form>
 		<div>
 			<br>
-			등록된 상효명을 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findStoreName.jsp&FOOTERIS=display:none" style="text-decoration:underline">판매자 계정 찾기</a>
+			등록된 상호명을 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findStoreName.jsp&FOOTERIS=display:none" style="text-decoration:underline">판매자 계정 찾기</a>
 			<br>
 			판매자 계정 아이디를 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findProducerId.jsp&FOOTERIS=display:none" style="text-decoration:underline">판매자 계정 찾기</a>
 			<br>

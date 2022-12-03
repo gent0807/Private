@@ -7,9 +7,10 @@ public class RegisterDTO {
 	private String password;
 	private String nickname;
 	private String memberid;
-	private String storeid;
 	private String storename;
-	private String expertid;
+	private String storeid;
+	
+
 	
 	public String getMemberidfront() {
 		return memberidfront;
@@ -46,6 +47,18 @@ public class RegisterDTO {
 	}
 	public void setMemberid(String memberid) {
 		this.memberid = memberid;
+	}
+	public String getStorename() {
+		return storename;
+	}
+	public void setStorename(String storename) {
+		this.storename = storename;
+	}
+	public String getStoreid() {
+		return storeid;
+	}
+	public void setStoreid(String storeid) {
+		this.storeid = storeid;
 	}
 	
 }

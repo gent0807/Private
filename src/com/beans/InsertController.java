@@ -54,6 +54,7 @@ public class InsertController extends HttpServlet {
 		session.setAttribute("PADDINGSUB","padding-right:220px");
 		session.setAttribute("PADDINGSUB2","padding-right:253px");
 		session.setAttribute("SEGMENT", "secondSegment.jsp");
+		session.setAttribute("userModeId", rd.makeId(memberidfront, memberidback, memberidbackself));
 		session.setAttribute("img","user.png");
 		String fixSector=(String)session.getAttribute("fixSector");
 		String fixSectorSub=(String)session.getAttribute("fixSectorSub");

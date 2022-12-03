@@ -21,7 +21,7 @@
 		<a href="privateHome.jsp?CONTENTPAGE=community.jsp&FIXSECTOR=community&FIXSECTORSUB=communityHome"><img alt="Private" width="130" height="130" src="img/daram.png"></a>
 		<br>
 		<br>		
-		<form action="module/expertLoginProcess.jsp" method="post">
+		<form action="ExpertLogin.do" method="post">
 			Email : <input type="text" name="expertid" value=<%=session.getAttribute("userModeId") %>><br>
 			<p style=<%=idCheckVisibleE %>>존재하지 않는 전문가 아이디입니다.</p>
 			password : <input type="password" name="password"><br>
