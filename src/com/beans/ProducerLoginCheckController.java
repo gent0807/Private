@@ -57,7 +57,7 @@ public class ProducerLoginCheckController extends HttpServlet {
 		}
 		if(producerCheck[0].equals("OK")&&producerCheck[1].equals("OK")&&producerCheck[2].equals("OK")&&producerCheck[3].equals("OK")) {
 			session.setAttribute("userModeId", rt.getMemberid());
-			session.setAttribute("SEGMENT", "expertSegment.jsp");//
+			session.setAttribute("SEGMENT", "producerSegment.jsp");//
 			session.setAttribute("PADDING","padding-right:640px");
 			session.setAttribute("PADDINGSUB","padding-right:220px");
 			session.setAttribute("PADDINGSUB2","padding-right:253px");
@@ -147,8 +147,8 @@ public class ProducerLoginCheckController extends HttpServlet {
 				session.setAttribute("passwordCheckVisibleP", "visibility:hidden");
 				session.setAttribute("storeNameCheckVisible", "visibility:hidden");
 				session.setAttribute("storeIdCheckVisible", "visibility:hidden");
-				session.setAttribute("expertLoginCheck","ok");
-				session.setAttribute("expertLoginid",rt.getMemberid());
+				session.setAttribute("producerLoginCheck","ok");
+				session.setAttribute("producerLoginid",rt.getMemberid());
 				response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
 				
 			}

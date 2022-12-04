@@ -158,7 +158,7 @@ public class RegisterDAO {
 		ArrayList<String> nlist=new ArrayList<String>();
 		ArrayList<String> silist=new ArrayList<String>();
 		String[] producerCheck=new String[4];
-		for(int i=0; i<producerCheck.length;i++) {
+		for(int i=0; i<producerCheck.length; i++) {
 			producerCheck[i]="NO";
 		}		
 		conn=JDBCUtil.getConnection();

@@ -29,7 +29,7 @@
 		<a href="privateHome.jsp?CONTENTPAGE=community.jsp&FIXSECTOR=community&FIXSECTORSUB=communityHome"><img alt="Private" width="130" height="130" src="img/daram.png"></a>
 		<br>
 		<br>		
-		<form action="module/producerLoginProcess.jsp" method="post">
+		<form action="ProducerLogin.do" method="post">
 			판매자 아이디: <input type="text" name="producerid"><br>
 			<p style=<%=idCheckVisibleP %>>존재하지 않는 판매자 아이디 입니다.</p>
 			password : <input type="password" name="password"><br>
@@ -44,7 +44,9 @@
 			<br>
 			등록된 상호명을 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findStoreName.jsp&FOOTERIS=display:none" style="text-decoration:underline">판매자 계정 찾기</a>
 			<br>
+			<br>
 			판매자 계정 아이디를 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findProducerId.jsp&FOOTERIS=display:none" style="text-decoration:underline">판매자 계정 찾기</a>
+			<br>
 			<br>
 			비밀번호를 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findProducerPassword.jsp&FOOTERIS=display:none" style="text-decoration:underline">비밀번호 찾기</a>
 		</div>

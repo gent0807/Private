@@ -144,7 +144,7 @@ public class ExpertLoginCheckController extends HttpServlet {
 		else if(expertCheck.equals("IDOK")){
 			session.setAttribute("idCheckVisibleE", "visibility:hidden");
 			session.setAttribute("passwordCheckVisibleE", "visibility:visible");	
-			contentPage="login.jsp";
+			contentPage="expertLogin.jsp";
 			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
 		
 			
@@ -152,7 +152,7 @@ public class ExpertLoginCheckController extends HttpServlet {
 		else if(expertCheck.equals("NOTOK")){
 			session.setAttribute("idCheckVisibleE", "visibility:visible");
 			session.setAttribute("passwordCheckVisibleE", "visibility:hidden");	
-			contentPage="login.jsp";
+			contentPage="expertLogin.jsp";
 			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
 		
 		}

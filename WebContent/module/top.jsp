@@ -613,8 +613,7 @@
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="#760c0c";
 			}
-			})
-			
+		})
 		kitchen.addEventListener("mouseleave",function(){
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="black";
@@ -650,7 +649,6 @@
 				storeCategoryAnimal.style.color="#760c0c";
 			}
 		})
-		
 		animal.addEventListener("mouseleave",function(){
 			if(fixCategory!="animal"){
 				storeCategoryAnimal.style.color="black";
@@ -725,13 +723,14 @@
 				storeCategoryAccept.style.color="black";
 			}
 		})
+		
 		storeCategoryKitchen.addEventListener("mouseover",function(){
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="#760c0c";
 			}
-			})
+		})
 			
-		storeCategoryKitechen.addEventListener("mouseleave",function(){
+		storeCategoryKitchen.addEventListener("mouseleave",function(){
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="black";
 			}
@@ -780,7 +779,7 @@
 		})
 			
 		storeCategoryHealth.addEventListener("mouseleave",function(){
-			if(fixCategory!="Health"){
+			if(fixCategory!="health"){
 				storeCategoryHealth.style.color="black";
 			}
 		})
@@ -1091,7 +1090,7 @@
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="#760c0c";
 			}
-			})
+		})
 			
 		storeCategoryKitechen.addEventListener("mouseleave",function(){
 			if(fixCategory!="kitchen"){
@@ -1142,7 +1141,7 @@
 		})
 			
 		storeCategoryHealth.addEventListener("mouseleave",function(){
-			if(fixCategory!="Health"){
+			if(fixCategory!="health"){
 				storeCategoryHealth.style.color="black";
 			}
 		})
