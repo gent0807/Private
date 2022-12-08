@@ -2,6 +2,7 @@ package com.beans;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,7 @@ public class ProducerLoginCheckController extends HttpServlet {
 		RegisterDAO rd=new RegisterDAO();
 		try {
 			producerCheck=rd.producerCheck(rt);
-			
+			System.out.println(producerCheck[0]+","+producerCheck[1]+","+producerCheck[2]+","+producerCheck[3]);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,7 +47,7 @@ public class ProducerLoginCheckController extends HttpServlet {
 		if(producerCheck[0].equals("NO")) {
 			session.setAttribute("idCheckVisibleP", "visibility:visible");
 		}
-		if(producerCheck[1].equals("NO")) {
+		if(producerCheck[1].equals("NO")&&producerCheck[0].equals("OK")) {
 			session.setAttribute("passwordCheckVisibleP", "visibility:visible");
 		}
 		if(producerCheck[2].equals("NO")) {
@@ -57,7 +58,7 @@ public class ProducerLoginCheckController extends HttpServlet {
 		}
 		if(producerCheck[0].equals("OK")&&producerCheck[1].equals("OK")&&producerCheck[2].equals("OK")&&producerCheck[3].equals("OK")) {
 			session.setAttribute("userModeId", rt.getMemberid());
-			session.setAttribute("SEGMENT", "producerSegment.jsp");//
+			session.setAttribute("SEGMENT", "producerSegment.jsp");
 			session.setAttribute("PADDING","padding-right:640px");
 			session.setAttribute("PADDINGSUB","padding-right:220px");
 			session.setAttribute("PADDINGSUB2","padding-right:253px");
@@ -143,20 +144,19 @@ public class ProducerLoginCheckController extends HttpServlet {
 				else if(product.equals("health")){
 					contentPage="storeCategoryHealth.jsp";
 				}
+			}
 				session.setAttribute("idCheckVisibleP", "visibility:hidden");
 				session.setAttribute("passwordCheckVisibleP", "visibility:hidden");
 				session.setAttribute("storeNameCheckVisible", "visibility:hidden");
 				session.setAttribute("storeIdCheckVisible", "visibility:hidden");
-				session.setAttribute("producerLoginCheck","ok");
-				session.setAttribute("producerLoginid",rt.getMemberid());
 				response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
-				
-			}
+				//request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory).forward(request,response);
 		}
+		
 		else {
 			contentPage="producerLogin.jsp";
 			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
 		}
 
 	}
-}
+  }

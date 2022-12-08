@@ -161,31 +161,31 @@ public class RegisterDAO {
 		for(int i=0; i<producerCheck.length; i++) {
 			producerCheck[i]="NO";
 		}		
+		System.out.println(producerCheck[0]+","+producerCheck[1]+","+producerCheck[2]+","+producerCheck[3]);
 		conn=JDBCUtil.getConnection();
 		pstmt=conn.prepareStatement(PRODUCER_LIST);
 		rs=pstmt.executeQuery();
 		while(rs.next()) {
 			idlist.add(rs.getString("producerid"));
 			plist.add(rs.getString("password"));
-			nlist.add(rs.getNString("storename"));
+			nlist.add(rs.getString("storename"));
 			silist.add(rs.getString("storeid"));
-			for(int i=0;i<idlist.size();i++){
-				if(mem.getMemberid().equals(idlist.get(i))) {
-					producerCheck[0]="OK";
-				}
-				if(mem.getPassword().equals(plist.get(i))) {
-					producerCheck[1]="OK";
-				}
-				if(mem.getStorename().equals(nlist.get(i))) {
-					producerCheck[2]="OK";
-				}
-				if(mem.getStoreid().equals(silist.get(i))) {
-					producerCheck[3]="OK";
-				}
-			}
-			
-			
 		}
+		for(int i=0;i<idlist.size();i++){
+			if(mem.getMemberid().equals(idlist.get(i))) {
+				producerCheck[0]="OK";
+			}
+			if(mem.getPassword().equals(plist.get(i))) {
+				producerCheck[1]="OK";
+			}
+			if(mem.getStorename().equals(nlist.get(i))) {
+				producerCheck[2]="OK";
+			}
+			if(mem.getStoreid().equals(silist.get(i))) {
+				producerCheck[3]="OK";
+			}
+		}
+		System.out.println(producerCheck[0]+","+producerCheck[1]+","+producerCheck[2]+","+producerCheck[3]);
 		return producerCheck;
 	}
 	

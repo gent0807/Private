@@ -40,7 +40,7 @@
 		<div>
 			<br>
 			<br>
-			아직 회원이 아니신가요? <a href="privateHome.jsp?CONTENTPAGE=createAccount.jsp" style="text-decoration:underline;">회원가입</a>
+			아직 회원이 아니신가요? <a href="privateHome.jsp?CONTENTPAGE=createAccount.jsp&FOOTERIS=display:none" style="text-decoration:underline;">회원가입</a>
 			<br>
 			<br>
 			비밀번호를 잊어버리셨나요? <a href="privateHome.jsp?CONTENTPAGE=findUserPassword.jsp&FOOTERIS=display:none" style="text-decoration:underline">비밀번호 찾기</a>

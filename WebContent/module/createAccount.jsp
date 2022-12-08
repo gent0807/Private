@@ -67,7 +67,7 @@
 		</form>
 		<div>
 			<br>
-			이미 아이디가 있으신가요? <a href="privateHome.jsp?CONTENTPAGE=login.jsp" style="text-decoration:underline;">로그인</a>
+			이미 아이디가 있으신가요? <a href="privateHome.jsp?CONTENTPAGE=login.jsp&FOOTERIS=display:none" style="text-decoration:underline;">로그인</a>
 			
 		</div>
 		<script type="text/javascript">

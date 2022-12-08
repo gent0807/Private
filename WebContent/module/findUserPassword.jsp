@@ -7,8 +7,13 @@
 <title>Private</title>
 </head>
 <body>
-	<div>
-		<h1>일반 사용자 패스워드 찾기 페이지입니다.</h1>
-	</div>
+	<p>가입한 이메일 주소를 입력해주세요.</p>
+	<form>
+		<div>
+			<input type="text" placeholder="이메일">
+			<input type="button" placeholer="확인"><br>
+			<p style="visibility">필수 입려 항목입니다.</p>
+		</div>
+	</form>
 </body>
 </html>
