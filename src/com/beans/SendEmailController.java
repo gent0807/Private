@@ -46,7 +46,7 @@ public class SendEmailController extends HttpServlet {
 		if(findmode.equals("user")){
 			subject = "비밀번호 찾기를 위한 인증메일입니다.";
 			try {
-				content="비밀번호는 "+rd.findUserPassword(to)+"입니다.";
+				content="안녕하세요! Private입니다. 고객님께서 요청하신 비밀번호를 보내드립니다. 고객님의 계정 비밀번호는 "+rd.findUserPassword(to)+"입니다. 보안을 위해 비밀번호 변경을 권장드립니다.";
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -56,7 +56,7 @@ public class SendEmailController extends HttpServlet {
 		else if(findmode.equals("expert")){
 			subject = "전문가 계정 비밀번호 찾기를 위한 인증메일입니다.";
 			try {
-				content="전문가 계정 비밀번호는 "+rd.findExpertPassword(to)+"입니다.";
+				content="안녕하세요! Private입니다. 고객님께서 요청하신 비밀번호를 보내드립니다. 고객님의 전문가 계정 비밀번호는 "+rd.findExpertPassword(to)+"입니다. 보안을 위해 비밀번호 변경을 권장드립니다.";
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -66,7 +66,7 @@ public class SendEmailController extends HttpServlet {
 		else if(findmode.equals("producer")){
 			subject = "판매자 계정 비밀번호 찾기를 위한 인증메일입니다.";
 			try {
-				content="판매자 계정 비밀번호는 "+rd.findProducerPassword(to)+"입니다.";
+				content="안녕하세요! Private입니다. 고객님께서 요청하신 비밀번호를 보내드립니다. 고객님의 판매자 계정 비밀번호는 "+rd.findProducerPassword(to)+"입니다. 보안을 위해 비밀번호 변경을 권장드립니다.";
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

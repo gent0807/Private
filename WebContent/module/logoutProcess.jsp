@@ -7,6 +7,8 @@
 	session.setAttribute("PADDINGSUB2","padding-right:148px");
 	session.setAttribute("idCheckVisible", "visibility:hidden");
 	session.setAttribute("passwordCheckVisible", "visibility:hidden");
+	session.setAttribute("loginChecked","no");
+	session.setAttribute("loginid", null);
 %> 
 <!DOCTYPE html>
 <html>

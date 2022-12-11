@@ -149,9 +149,11 @@
 				<jsp:include page='<%= "module/" + contentPage %>' flush="false"/>
 			</section>		
 		</main>
+		<br>
+		<br>
 		<footer style=<%=footeris %>>
 			<div style="background:#E6E6FA; padding-right:465px; height:250px;">
-				동양미래대학교 컴퓨터소프트웨어공학과 20211033 신윤섭 20190778 안상현
+				<p>Copyright © 2022 Shin-Yoonseop, Ahn-Shanghyun All rights reserved.</p>
 			</div>		
 		</footer>
 </body>

@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Login.do")
 public class UserLoginCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-   
+       	
+    	
+		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -138,8 +138,7 @@ public class UserLoginCheckController extends HttpServlet {
 				}
 				session.setAttribute("idCheckVisible", "visibility:hidden");
 				session.setAttribute("passwordCheckVisible", "visibility:hidden");
-				session.setAttribute("loginCheck","ok");//***
-				session.setAttribute("loginid",rt.getMemberid());//***
+				
 				
 			}
 			if(rt.getMemberid().equals("tldbstjq95@naver.com")){
@@ -148,12 +147,17 @@ public class UserLoginCheckController extends HttpServlet {
 			else{
 				session.setAttribute("img","user.png");
 			}
+			session.setAttribute("idCheckVisible", "visibility:hidden");
+			session.setAttribute("passwordCheckVisible", "visibility:hidden");
+			session.setAttribute("loginChecked","ok");
+			session.setAttribute("loginid",rt.getMemberid());
 			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
 		
 		}
 		else if(check.equals("IDOK")){
 			session.setAttribute("idCheckVisible", "visibility:hidden");
 			session.setAttribute("passwordCheckVisible", "visibility:visible");	
+			session.setAttribute("loginChecked","no");
 			contentPage="login.jsp";
 			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
 		
@@ -162,6 +166,7 @@ public class UserLoginCheckController extends HttpServlet {
 		else if(check.equals("NOTOK")){
 			session.setAttribute("idCheckVisible", "visibility:visible");
 			session.setAttribute("passwordCheckVisible", "visibility:hidden");	
+			session.setAttribute("loginChecked","no");//***
 			contentPage="login.jsp";
 			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
 		
