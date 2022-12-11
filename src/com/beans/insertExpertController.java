@@ -11,18 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-
-@WebServlet("/Insert.do")
-public class InsertController extends HttpServlet {
+@WebServlet("/InsertExpert.do")
+public class insertExpertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+   
    
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -30,31 +31,23 @@ public class InsertController extends HttpServlet {
 		String memberidback=request.getParameter("memberidback");
 		String memberidbackself=request.getParameter("memberidbackself");
 		String password=request.getParameter("password");
-		String nickname=request.getParameter("nickname");
 		
 		RegisterDTO rt=new RegisterDTO();
 		rt.setMemberidfront(memberidfront);
 		rt.setMemberidback(memberidback);
 		rt.setMemberidbackself(memberidbackself);
 		rt.setPassword(password);
-		rt.setNickname(nickname);
-		
 		RegisterDAO rd=new RegisterDAO();
 		try {
-			rd.insertMember(rt);//*******
+			rd.insertExpert(rt);//*******
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		HttpSession session=request.getSession();
-		session.setAttribute("expertIsin", "NO");
-		session.setAttribute("producerIsin", "NO");
 		session.setAttribute("SEGMENT", "secondSegment.jsp");
 		session.setAttribute("PADDING","padding-right:640px");
 		session.setAttribute("PADDINGSUB","padding-right:220px");
 		session.setAttribute("PADDINGSUB2","padding-right:253px");
-		session.setAttribute("SEGMENT", "secondSegment.jsp");
-		session.setAttribute("userModeId", rd.makeId(memberidfront, memberidback, memberidbackself));
-		session.setAttribute("img","user.png");
 		String fixSector=(String)session.getAttribute("fixSector");
 		String fixSectorSub=(String)session.getAttribute("fixSectorSub");
 		String product=(String)session.getAttribute("product");
@@ -141,6 +134,7 @@ public class InsertController extends HttpServlet {
 		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
 		dispatcher.forward(request, response);
+		
 	}
 
 }

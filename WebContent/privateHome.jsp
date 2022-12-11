@@ -24,17 +24,69 @@
 <body>
 <%	
 	ArrayList<String> emails= new ArrayList<String>(); 
+	ArrayList<String> expertEmails= new ArrayList<String>(); 
+	ArrayList<String> producerEmails= new ArrayList<String>();
+	ArrayList<String> producerStoreId= new ArrayList<String>();
+	ArrayList<String> producerStoreName= new ArrayList<String>();
+	
+	ArrayList<String> reExpertEmails= new ArrayList<String>();
+	ArrayList<String> reProducerEmails= new ArrayList<String>();
+	ArrayList<String> reProducerStoreId= new ArrayList<String>();
+	ArrayList<String> reProducerStoreName= new ArrayList<String>();
 	ArrayList<String> nicknames= new ArrayList<String>(); 
 	ArrayList<String> passwords= new ArrayList<String>(); 
+	
 	ArrayList<RegisterDTO> mList=new ArrayList<RegisterDTO>(); 
+	ArrayList<RegisterDTO> eList=new ArrayList<RegisterDTO>(); 
+	ArrayList<RegisterDTO> pList=new ArrayList<RegisterDTO>(); 
+	ArrayList<RegisterDTO> reList=new ArrayList<RegisterDTO>(); 
+	ArrayList<RegisterDTO> peList=new ArrayList<RegisterDTO>(); 
+	
 	mList=firstConnect.selectMemberList();
+	eList=firstConnect.selectExpertList();
+	pList=firstConnect.selectProducerList();
+	reList=firstConnect.selectRExpertList();
+	peList=firstConnect.selectRProducerList();
 	
 	for(int i=0; i<mList.size(); i++){
 		emails.add(mList.get(i).getMemberid());
 		nicknames.add(mList.get(i).getNickname());
 	}
 	
+	for(int i=0; i<eList.size(); i++){
+		expertEmails.add(eList.get(i).getMemberid());
+	}
+	
+	for(int i=0; i<pList.size(); i++){
+		producerEmails.add(pList.get(i).getMemberid());
+		producerStoreId.add(pList.get(i).getStoreid());
+		producerStoreName.add(pList.get(i).getStorename());
+	}
+	
+	for(int i=0; i<reList.size(); i++){
+		reExpertEmails.add(reList.get(i).getMemberid());
+	}
+	
+
+	for(int i=0; i<peList.size(); i++){
+		reProducerEmails.add(peList.get(i).getMemberid());
+		reProducerStoreId.add(peList.get(i).getStoreid());
+		reProducerStoreName.add(peList.get(i).getStorename());
+	}
+	
 	session.setAttribute("emails", emails);
+	
+	session.setAttribute("reExpertEmails", reExpertEmails);
+	session.setAttribute("reProducerEmails", reProducerEmails);
+	session.setAttribute("reProducerStoreId", reProducerStoreId);
+	session.setAttribute("reProducerStoreName",reProducerStoreName);
+	
+	
+	session.setAttribute("expertEmails", expertEmails);
+	session.setAttribute("producerEmails", producerEmails);
+	session.setAttribute("producerStoreId", producerStoreId);
+	session.setAttribute("producerStoreName",producerStoreName);
+	
 	session.setAttribute("nicknames", nicknames);
 	
 	

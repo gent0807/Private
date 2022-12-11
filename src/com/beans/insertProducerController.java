@@ -12,49 +12,47 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
-
-@WebServlet("/Insert.do")
-public class InsertController extends HttpServlet {
+@WebServlet("/InsertProducer.do")
+public class insertProducerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
    
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		String memberidfront=request.getParameter("memberidfront");
 		String memberidback=request.getParameter("memberidback");
 		String memberidbackself=request.getParameter("memberidbackself");
 		String password=request.getParameter("password");
-		String nickname=request.getParameter("nickname");
+		String storeid=request.getParameter("storeid");
+		String storename=request.getParameter("storename");
 		
+
 		RegisterDTO rt=new RegisterDTO();
 		rt.setMemberidfront(memberidfront);
 		rt.setMemberidback(memberidback);
 		rt.setMemberidbackself(memberidbackself);
 		rt.setPassword(password);
-		rt.setNickname(nickname);
-		
+		rt.setStoreid(storeid);
+		rt.setStorename(storename);
 		RegisterDAO rd=new RegisterDAO();
 		try {
-			rd.insertMember(rt);//*******
+			rd.insertProducer(rt);//*******
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		HttpSession session=request.getSession();
-		session.setAttribute("expertIsin", "NO");
-		session.setAttribute("producerIsin", "NO");
 		session.setAttribute("SEGMENT", "secondSegment.jsp");
-		session.setAttribute("PADDING","padding-right:640px");
+		session.setAttribute("PADDING","padding-right:700px");
 		session.setAttribute("PADDINGSUB","padding-right:220px");
 		session.setAttribute("PADDINGSUB2","padding-right:253px");
-		session.setAttribute("SEGMENT", "secondSegment.jsp");
-		session.setAttribute("userModeId", rd.makeId(memberidfront, memberidback, memberidbackself));
-		session.setAttribute("img","user.png");
 		String fixSector=(String)session.getAttribute("fixSector");
 		String fixSectorSub=(String)session.getAttribute("fixSectorSub");
 		String product=(String)session.getAttribute("product");

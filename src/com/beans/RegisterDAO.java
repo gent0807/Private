@@ -10,10 +10,12 @@ public class RegisterDAO {
 	
 	final String USER_INSERT="insert into membertbl values(?, ?, ?);";
 	final String USER_LIST="select * from membertbl;";
-	final String EXPERT_INSERT="insert into experttbl values(?,?,?);";
+	final String EXPERT_INSERT="insert into registerexperttbl values(?,?);";
 	final String EXPERT_LIST="select * from experttbl";
-	final String PRODUCER_INSERT="insert into producertbl values(?,?,?);";
+	final String REXPERT_LIST="select * from registerexperttbl";
+	final String PRODUCER_INSERT="insert into registerproducertbl values(?,?,?,?);";
 	final String PRODUCER_LIST="select * from producertbl";
+	final String RPRODUCER_LIST="select * from registerproducertbl";
 	
 	public String makeId(String memberidfront, String memberidback, String memberidbackself){
 		String memberid=null;
@@ -35,6 +37,7 @@ public class RegisterDAO {
 		pstmt.executeUpdate();
 		JDBCUtil.close(pstmt, conn);
 	}
+	
 	
 	public ArrayList<RegisterDTO> selectMemberList() throws SQLException {
 		conn=JDBCUtil.getConnection();
@@ -83,9 +86,59 @@ public class RegisterDAO {
 		return check;		
 	}
 	
+	public String findUserPassword(String email) throws SQLException{
+		String password=null;
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement("select password from membertbl where memberid=(?)");
+		pstmt.setString(1,email);
+		rs=pstmt.executeQuery();
+		while(rs.next()){
+			password=rs.getString("password");
+		}
+		JDBCUtil.close(pstmt, conn);
+		return password;
+	}
+	
 	public void insertExpert(RegisterDTO mem) throws SQLException{
 		conn=JDBCUtil.getConnection();
 		pstmt=conn.prepareStatement(EXPERT_INSERT);
+		pstmt.setString(1,makeId(mem.getMemberidfront(),mem.getMemberidback(),mem.getMemberidbackself()));
+		pstmt.setString(2,mem.getPassword());
+		pstmt.executeUpdate();
+		JDBCUtil.close(pstmt, conn);
+	}
+	
+	public ArrayList<RegisterDTO> selectExpertList() throws SQLException {
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(EXPERT_LIST); //쿼리를 실행할 statement 객체 생성
+		rs=pstmt.executeQuery();
+		ArrayList<RegisterDTO> aList = new ArrayList<RegisterDTO>();
+		while(rs.next()){
+			RegisterDTO rd=new RegisterDTO();			
+			rd.setMemberid(rs.getString("expertid"));
+			rd.setPassword(rs.getString("password"));
+			aList.add(rd);
+		}
+		JDBCUtil.close(pstmt, conn);
+		return aList;
+		
+	}
+	
+
+	public ArrayList<RegisterDTO> selectRExpertList() throws SQLException {
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(REXPERT_LIST); //쿼리를 실행할 statement 객체 생성
+		rs=pstmt.executeQuery();
+		ArrayList<RegisterDTO> aList = new ArrayList<RegisterDTO>();
+		while(rs.next()){
+			RegisterDTO rd=new RegisterDTO();			
+			rd.setMemberid(rs.getString("expertid"));
+			rd.setPassword(rs.getString("password"));
+			aList.add(rd);
+		}
+		JDBCUtil.close(pstmt, conn);
+		return aList;
+		
 	}
 	
 	public String expertIsin(RegisterDTO mem) throws SQLException{
@@ -132,10 +185,65 @@ public class RegisterDAO {
 		return expertCheck;		
 	}
 	
+	public String findExpertPassword(String email) throws SQLException{
+		String password=null;
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement("select password from experttbl where expertid=(?)");
+		pstmt.setString(1,email);
+		rs=pstmt.executeQuery();
+		while(rs.next()){
+			password=rs.getString("password");
+		}
+		JDBCUtil.close(pstmt, conn);
+		return password;
+	}
+	
 	
 	public void insertProducer(RegisterDTO mem) throws SQLException{
-		conn=JDBCUtil.getConnection(); // 같은 패키지에 있는 클래스는 import 작업이 불필요
+		conn=JDBCUtil.getConnection();
 		pstmt=conn.prepareStatement(PRODUCER_INSERT);
+		pstmt.setString(1,makeId(mem.getMemberidfront(),mem.getMemberidback(),mem.getMemberidbackself()));
+		pstmt.setString(2,mem.getPassword());
+		pstmt.setString(3,mem.getStoreid());
+		pstmt.setString(4,mem.getStorename());
+		pstmt.executeUpdate();
+		JDBCUtil.close(pstmt, conn);
+	}
+	
+	public ArrayList<RegisterDTO> selectProducerList() throws SQLException {
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(PRODUCER_LIST); //쿼리를 실행할 statement 객체 생성
+		rs=pstmt.executeQuery();
+		ArrayList<RegisterDTO> aList = new ArrayList<RegisterDTO>();
+		while(rs.next()){
+			RegisterDTO rd=new RegisterDTO();			
+			rd.setMemberid(rs.getString("producerid"));
+			rd.setPassword(rs.getString("password"));
+			rd.setStoreid(rs.getString("storeid"));
+			rd.setStorename(rs.getString("storename"));
+			aList.add(rd);
+		}
+		JDBCUtil.close(pstmt, conn);
+		return aList;
+		
+	}
+	
+	public ArrayList<RegisterDTO> selectRProducerList() throws SQLException {
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement(RPRODUCER_LIST); //쿼리를 실행할 statement 객체 생성
+		rs=pstmt.executeQuery();
+		ArrayList<RegisterDTO> aList = new ArrayList<RegisterDTO>();
+		while(rs.next()){
+			RegisterDTO rd=new RegisterDTO();			
+			rd.setMemberid(rs.getString("producerid"));
+			rd.setPassword(rs.getString("password"));
+			rd.setStoreid(rs.getString("storeid"));
+			rd.setStorename(rs.getString("storename"));
+			aList.add(rd);
+		}
+		JDBCUtil.close(pstmt, conn);
+		return aList;
+		
 	}
 	
 	public String producerIsin(RegisterDTO mem) throws SQLException{
@@ -188,6 +296,20 @@ public class RegisterDAO {
 		System.out.println(producerCheck[0]+","+producerCheck[1]+","+producerCheck[2]+","+producerCheck[3]);
 		return producerCheck;
 	}
+	
+	public String findProducerPassword(String email) throws SQLException{
+		String password=null;
+		conn=JDBCUtil.getConnection();
+		pstmt=conn.prepareStatement("select password from producertbl where producerid=(?)");
+		pstmt.setString(1,email);
+		rs=pstmt.executeQuery();
+		while(rs.next()){
+			password=rs.getString("password");
+		}
+		JDBCUtil.close(pstmt, conn);
+		return password;
+	}
+	
 	
 	
 }

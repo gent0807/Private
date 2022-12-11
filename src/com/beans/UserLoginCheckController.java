@@ -138,8 +138,8 @@ public class UserLoginCheckController extends HttpServlet {
 				}
 				session.setAttribute("idCheckVisible", "visibility:hidden");
 				session.setAttribute("passwordCheckVisible", "visibility:hidden");
-				session.setAttribute("loginCheck","ok");
-				session.setAttribute("loginid",rt.getMemberid());
+				session.setAttribute("loginCheck","ok");//***
+				session.setAttribute("loginid",rt.getMemberid());//***
 				
 			}
 			if(rt.getMemberid().equals("tldbstjq95@naver.com")){

@@ -207,7 +207,7 @@
 	        	}
 	        	
 	             
-	        })
+	        });
 	    });
 	    
 	   
@@ -225,6 +225,8 @@
 	    		managerWritingList.style.display="none";
 			},0.2*1000);
 	    });
+		
+		
 	</script>
 </body>
 </html>
