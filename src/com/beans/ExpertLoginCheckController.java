@@ -43,6 +43,10 @@ public class ExpertLoginCheckController extends HttpServlet {
 		}
 		HttpSession session=request.getSession();
 		String contentPage=null;
+		String fixSector=(String)session.getAttribute("fixSector");
+		String fixSectorSub=(String)session.getAttribute("fixSectorSub");
+		String product=(String)session.getAttribute("product");
+		String fixCategory=(String)session.getAttribute("fixCategory");
 		if(expertCheck.equals("ALLOK")){
 			session.setAttribute("userModeId", rt.getMemberid());
 			session.setAttribute("SEGMENT", "expertSegment.jsp");//
@@ -50,10 +54,7 @@ public class ExpertLoginCheckController extends HttpServlet {
 			session.setAttribute("PADDINGSUB","padding-right:220px");
 			session.setAttribute("PADDINGSUB2","padding-right:253px");
 			
-			String fixSector=(String)session.getAttribute("fixSector");
-			String fixSectorSub=(String)session.getAttribute("fixSectorSub");
-			String product=(String)session.getAttribute("product");
-			String fixCategory=(String)session.getAttribute("fixCategory");
+			
 			
 			if(fixSectorSub.equals("communityHome")){
 				contentPage="community.jsp";
@@ -137,23 +138,31 @@ public class ExpertLoginCheckController extends HttpServlet {
 			session.setAttribute("idCheckVisibleE", "visibility:hidden");
 			session.setAttribute("passwordCheckVisibleE", "visibility:hidden");
 			session.setAttribute("expertLoginCheck","ok");
+			session.setAttribute("producerLoginCheck","no");
 			session.setAttribute("expertLoginid",rt.getMemberid());
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+			if(contentPage.equals("communityQNA.jsp")) {
+				response.sendRedirect("WList.do?FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+			}
+			else {
+				response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product);
+			}
 		
 		}
 		else if(expertCheck.equals("IDOK")){
 			session.setAttribute("idCheckVisibleE", "visibility:hidden");
-			session.setAttribute("passwordCheckVisibleE", "visibility:visible");	
+			session.setAttribute("passwordCheckVisibleE", "visibility:visible");
+			session.setAttribute("expertLoginCheck","no");
 			contentPage="expertLogin.jsp";
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
+			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product+"&FOOTERIS='display:none'");
 		
 			
 		}
 		else if(expertCheck.equals("NOTOK")){
 			session.setAttribute("idCheckVisibleE", "visibility:visible");
 			session.setAttribute("passwordCheckVisibleE", "visibility:hidden");	
+			session.setAttribute("expertLoginCheck","no");
 			contentPage="expertLogin.jsp";
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
+			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product+"&FOOTERIS='display:none'");
 		
 		}
 		

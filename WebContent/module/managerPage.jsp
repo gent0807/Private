@@ -11,7 +11,7 @@
 <body>
 	<div>
 		<h1>관리자 페이지 메인입니다.</h1>
-		<h2><a href="list.do"> 회원목록보기 </a></h2>
+		<h2><a href="list.do?"> 회원목록보기 </a></h2>
 	</div>
 </body>
 </html>

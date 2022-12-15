@@ -16,6 +16,7 @@
 <style type="text/css">
 	body{
 		text-align:center;
+		
 	}
 </style>
 <title>Private</title>
@@ -30,6 +31,7 @@
 	ArrayList<String> producerStoreName= new ArrayList<String>();
 	
 	ArrayList<String> reExpertEmails= new ArrayList<String>();
+	ArrayList<String> reExpertNicknames=new ArrayList<String>();
 	ArrayList<String> reProducerEmails= new ArrayList<String>();
 	ArrayList<String> reProducerStoreId= new ArrayList<String>();
 	ArrayList<String> reProducerStoreName= new ArrayList<String>();
@@ -65,6 +67,7 @@
 	
 	for(int i=0; i<reList.size(); i++){
 		reExpertEmails.add(reList.get(i).getMemberid());
+		reExpertNicknames.add(reList.get(i).getNickname());
 	}
 	
 
@@ -77,6 +80,7 @@
 	session.setAttribute("emails", emails);
 	
 	session.setAttribute("reExpertEmails", reExpertEmails);
+	session.setAttribute("reExpertNicknames", reExpertNicknames);
 	session.setAttribute("reProducerEmails", reProducerEmails);
 	session.setAttribute("reProducerStoreId", reProducerStoreId);
 	session.setAttribute("reProducerStoreName",reProducerStoreName);

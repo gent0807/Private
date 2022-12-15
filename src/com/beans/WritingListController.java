@@ -12,39 +12,38 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
-
-@WebServlet("/list.do")
-public class MemberListController extends HttpServlet {
+@WebServlet("/WList.do")
+public class WritingListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RegisterDAO rd=new RegisterDAO();
+		WriteDAO wt=new WriteDAO();
 		try {
-			
-			ArrayList<RegisterDTO> mList= rd.selectMemberList();//***
+			ArrayList<WriteDTO> qList= wt.selectQList();//***
+			ArrayList<WriteDTO> aList= wt.selectAList();//***
+			String fixSector=request.getParameter("FIXSECTOR");
+			String fixSectorSub=request.getParameter("FIXSECTORSUB");
+			String sector=request.getParameter("SECTOR");
+			String contentPage="communityQNA.jsp";
 			HttpSession session=request.getSession();
-			session.setAttribute("vList", mList);
-			session.setAttribute("SEGMENT", "secondSegment.jsp");
-			session.setAttribute("img","manager.png");
-			String fixSector=(String)session.getAttribute("fixSector");
-			String fixSectorSub=(String)session.getAttribute("fixSectorSub");
-			String product=(String)session.getAttribute("product");
-			String fixCategory=(String)session.getAttribute("fixCategory");
-			String contentPage="memberList.jsp";
-		
-			request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&MENUBAR=none&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory).forward(request,response);
+			session.setAttribute("qList", qList);	
+			session.setAttribute("aList", aList);
+			System.out.println("fdfsd");
+			request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&MENUBAR=exist&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&SECTOR="+sector).forward(request,response);
 			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

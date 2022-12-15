@@ -58,7 +58,7 @@
   		<a class="subMenu" id="communityPicture" href="privateHome.jsp?CONTENTPAGE=communityPicture.jsp&FIXSECTOR=community&FIXSECTORSUB=communityPicture&SECTOR=community" style="font-size:1.0em;">사진</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   		<a class="subMenu" id="communityHouseVisit" href="privateHome.jsp?CONTENTPAGE=communityHouseVisit.jsp&FIXSECTOR=community&FIXSECTORSUB=communityHouseVisit&SECTOR=community" style="font-size:1.0em;">집들이</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   		<a class="subMenu" id="communityKnowHow" href="privateHome.jsp?CONTENTPAGE=communityKnowHow.jsp&FIXSECTOR=community&FIXSECTORSUB=communityKnowHow&SECTOR=community" style="font-size:1.0em;">노하우</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<a class="subMenu" id="communityQNA" href="privateHome.jsp?CONTENTPAGE=communityQNA.jsp&FIXSECTOR=community&FIXSECTORSUB=communityQNA&SECTOR=community" style="font-size:1.0em;">질문과 답변</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  		<a class="subMenu" id="communityQNA" href="WList.do?CONTENTPAGE=communityQNA.jsp&FIXSECTOR=community&FIXSECTORSUB=communityQNA&SECTOR=community" style="font-size:1.0em;">질문과 답변</a>&nbsp;&nbsp;&nbsp;&nbsp;
   	</div>
   	<div id="storeMenu" style="padding-left:86px">
   		<a class="subMenu" id="storeHome" href="privateHome.jsp?CONTENTPAGE=store.jsp&FIXSECTOR=store&FIXSECTORSUB=storeHome&SECTOR=store" style="font-size:1.0em;">스토어홈</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1092,7 +1092,7 @@
 			}
 		})
 			
-		storeCategoryKitechen.addEventListener("mouseleave",function(){
+		storeCategoryKitchen.addEventListener("mouseleave",function(){
 			if(fixCategory!="kitchen"){
 				storeCategoryKitchen.style.color="black";
 			}

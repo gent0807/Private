@@ -3,6 +3,7 @@ package com.beans;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,7 @@ public class UserLoginCheckController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String i=request.getParameter("memberid");
 		String p=request.getParameter("password");
+		String expert=null;
 		String check=null;
 		String expertIsin=null;
 		String producerIsin=null;
@@ -45,6 +47,11 @@ public class UserLoginCheckController extends HttpServlet {
 			e.printStackTrace();
 		}
 		HttpSession session=request.getSession();
+		String sector=(String)session.getAttribute("sector");
+		String fixSector=(String)session.getAttribute("fixSector");
+		String fixSectorSub=(String)session.getAttribute("fixSectorSub");
+		String product=(String)session.getAttribute("product");
+		String fixCategory=(String)session.getAttribute("fixCategory");
 		String contentPage=null;
 		if(check.equals("ALLOK")){
 			session.setAttribute("expertIsin", expertIsin);
@@ -54,11 +61,6 @@ public class UserLoginCheckController extends HttpServlet {
 			session.setAttribute("PADDING","padding-right:640px");
 			session.setAttribute("PADDINGSUB","padding-right:220px");
 			session.setAttribute("PADDINGSUB2","padding-right:253px");
-			
-			String fixSector=(String)session.getAttribute("fixSector");
-			String fixSectorSub=(String)session.getAttribute("fixSectorSub");
-			String product=(String)session.getAttribute("product");
-			String fixCategory=(String)session.getAttribute("fixCategory");
 			
 			if(fixSectorSub.equals("communityHome")){
 				contentPage="community.jsp";
@@ -143,15 +145,22 @@ public class UserLoginCheckController extends HttpServlet {
 			}
 			if(rt.getMemberid().equals("tldbstjq95@naver.com")){
 				session.setAttribute("img","manager.png");
+				session.setAttribute("managerLoginChecked","ok");
 			}
 			else{
 				session.setAttribute("img","user.png");
+				session.setAttribute("managerLoginChecked","no");
 			}
 			session.setAttribute("idCheckVisible", "visibility:hidden");
 			session.setAttribute("passwordCheckVisible", "visibility:hidden");
 			session.setAttribute("loginChecked","ok");
 			session.setAttribute("loginid",rt.getMemberid());
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+			if(contentPage.equals("communityQNA.jsp")) {
+				response.sendRedirect("WList.do?FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&SECTOR="+sector+"&FIXCATEGORY="+fixCategory);
+			}
+			else {
+				response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&SECTOR="+sector+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product);
+			}
 		
 		}
 		else if(check.equals("IDOK")){
@@ -159,8 +168,7 @@ public class UserLoginCheckController extends HttpServlet {
 			session.setAttribute("passwordCheckVisible", "visibility:visible");	
 			session.setAttribute("loginChecked","no");
 			contentPage="login.jsp";
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
-		
+			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&SECTOR="+sector+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product+"&FOOTERIS='display:none'");
 			
 		}
 		else if(check.equals("NOTOK")){
@@ -168,7 +176,7 @@ public class UserLoginCheckController extends HttpServlet {
 			session.setAttribute("passwordCheckVisible", "visibility:hidden");	
 			session.setAttribute("loginChecked","no");//***
 			contentPage="login.jsp";
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
+			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&SECTOR="+sector+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product+"&FOOTERIS='display:none'");
 		
 		}
 		

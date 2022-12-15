@@ -197,10 +197,10 @@
          <input id="sign" type="button" value="회원가입하기">
       </form>
       <div>
-         <br>
-         이미 아이디가 있으신가요? <a href="privateHome.jsp?CONTENTPAGE=login.jsp&FOOTERIS=display:none" style="text-decoration:underline;">로그인</a>
-         
+     	    <br>
+         	이미 아이디가 있으신가요? <a href="privateHome.jsp?CONTENTPAGE=login.jsp&FOOTERIS=display:none" style="text-decoration:underline;">로그인</a>
       </div>
+      
      </div>
       <script type="text/javascript">
          let emailFront=document.getElementById("emailFront");

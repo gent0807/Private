@@ -44,6 +44,10 @@ public class ProducerLoginCheckController extends HttpServlet {
 		}
 		HttpSession session=request.getSession();
 		String contentPage=null;
+		String fixSector=(String)session.getAttribute("fixSector");
+		String fixSectorSub=(String)session.getAttribute("fixSectorSub");
+		String product=(String)session.getAttribute("product");
+		String fixCategory=(String)session.getAttribute("fixCategory");
 		if(producerCheck[0].equals("NO")) {
 			session.setAttribute("idCheckVisibleP", "visibility:visible");
 		}
@@ -62,11 +66,6 @@ public class ProducerLoginCheckController extends HttpServlet {
 			session.setAttribute("PADDING","padding-right:640px");
 			session.setAttribute("PADDINGSUB","padding-right:220px");
 			session.setAttribute("PADDINGSUB2","padding-right:253px");
-			
-			String fixSector=(String)session.getAttribute("fixSector");
-			String fixSectorSub=(String)session.getAttribute("fixSectorSub");
-			String product=(String)session.getAttribute("product");
-			String fixCategory=(String)session.getAttribute("fixCategory");
 			
 			if(fixSectorSub.equals("communityHome")){
 				contentPage="community.jsp";
@@ -149,13 +148,21 @@ public class ProducerLoginCheckController extends HttpServlet {
 				session.setAttribute("passwordCheckVisibleP", "visibility:hidden");
 				session.setAttribute("storeNameCheckVisible", "visibility:hidden");
 				session.setAttribute("storeIdCheckVisible", "visibility:hidden");
-				response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+				session.setAttribute("producerLoginCheck","ok");
+				session.setAttribute("expertLoginCheck","no");
+				session.setAttribute("producerLoginid",rt.getMemberid());
+				if(contentPage.equals("communityQNA.jsp")) {
+					response.sendRedirect("WList.do?FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+				}
+				else {
+					response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product);
+				}
 				//request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory).forward(request,response);
 		}
 		
 		else {
 			contentPage="producerLogin.jsp";
-			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FOOTERIS='display:none'");
+			response.sendRedirect("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product+"&FOOTERIS='display:none'");
 		}
 
 	}

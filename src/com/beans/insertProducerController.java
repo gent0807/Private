@@ -137,8 +137,14 @@ public class insertProducerController extends HttpServlet {
 			}
 			
 		}
-		RequestDispatcher dispatcher=request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
-		dispatcher.forward(request, response);
+		if(contentPage.equals("communityQNA.jsp")) {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("WList.do?FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+			dispatcher.forward(request, response);
+		}
+		else {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product);
+			dispatcher.forward(request, response);
+		}
 	}
 
 }

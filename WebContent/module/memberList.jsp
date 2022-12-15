@@ -11,7 +11,8 @@
 </head>
 <body >
 	<h1>회원목록 페이지입니다.</h1>
-	<!--<table>
+	<div style="display:flex; justify-content : center;">
+	<table>
 	<c:forEach items="${vList}" var="memberList">
 		<tr>
 			<td>${memberList.memberid}</td>
@@ -19,7 +20,8 @@
 			<td>${memberList.nickname}</td>
 		</tr>
 	</c:forEach>
-	</table> -->
+	</table> 
+	</div>
 	<%	
 	ArrayList<RegisterDTO> vList=(ArrayList<RegisterDTO>)session.getAttribute("vList");
 	for(int j=0; j<vList.size() ; j++){

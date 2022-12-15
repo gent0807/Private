@@ -31,12 +31,14 @@ public class insertExpertController extends HttpServlet {
 		String memberidback=request.getParameter("memberidback");
 		String memberidbackself=request.getParameter("memberidbackself");
 		String password=request.getParameter("password");
+		String nickname=request.getParameter("nickname");
 		
 		RegisterDTO rt=new RegisterDTO();
 		rt.setMemberidfront(memberidfront);
 		rt.setMemberidback(memberidback);
 		rt.setMemberidbackself(memberidbackself);
 		rt.setPassword(password);
+		rt.setNickname(nickname);
 		RegisterDAO rd=new RegisterDAO();
 		try {
 			rd.insertExpert(rt);//*******
@@ -132,8 +134,14 @@ public class insertExpertController extends HttpServlet {
 			}
 			
 		}
-		RequestDispatcher dispatcher=request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
-		dispatcher.forward(request, response);
+		if(contentPage.equals("communityQNA.jsp")) {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("WList.do?FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory);
+			dispatcher.forward(request, response);
+		}
+		else {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("privateHome.jsp?CONTENTPAGE="+contentPage+"&FIXSECTOR="+fixSector+"&FIXSECTORSUB="+fixSectorSub+"&FIXCATEGORY="+fixCategory+"&PRODUCT="+product);
+			dispatcher.forward(request, response);
+		}
 		
 	}
 

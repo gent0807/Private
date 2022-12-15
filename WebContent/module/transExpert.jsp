@@ -136,6 +136,15 @@
     border-radius: 20px;
     position: absolute;
     }
+   #nickSector{
+    text-align: left;
+    width: 225px;
+    height: 30px;
+    border: solid 2px #900020;
+    border-radius: 10px;
+    padding-left: 10px;
+    outline: none;
+   }
 
 </style>
 </head>
@@ -171,7 +180,11 @@
          <h2>비밀번호 확인</h2>
          <input id="pass2" type="password" name="password">
          <p id="p4" style="display:none"></p>
-         <br>
+         <h2>닉네임</h2>
+         <div>
+         	<input id="nickSector" type="text" name="nickname">
+         	<p id="p5" style="display:none"></p>
+         </div>
          <br>
          <input id="sign" type="button" value="전문가 회원가입하기">
       </form>
@@ -188,6 +201,7 @@
          let p2=document.getElementById("p2");
          let p3=document.getElementById("p3");
          let p4=document.getElementById("p4");
+         let p5=document.getElementById("p5");
         
          let box1=document.getElementById("box1");
          let authbox=document.getElementById("authbox");
@@ -199,7 +213,16 @@
          let result=emails.slice(1,emails.length-1);
          let resultArr=result.split(", ");
          
-        
+         let nicknames='${nicknames}';
+         let nick=nicknames.slice(1,nicknames.length-1);
+         let nickArr=nick.split(", "); 
+         
+         let reExpertNicknames='${reExpertNicknames}';
+         let reNick=reExpertNicknames.slice(1,reExpertNicknames.length-1);
+         let reNickArr=reNick.split(", ")
+         
+         let nickSector=document.getElementById("nickSector");
+         let nickPossible=false;
          
          let pass1=document.getElementById("pass1");
          let pass2=document.getElementById("pass2");
@@ -452,14 +475,58 @@
             }
          })
          
+           nickSector.addEventListener("keyup",function(){
+            let breakpoint="no";
+            if(nickSector.value==""){
+               nickSector.style.border="1px solid black";
+               p5.style.display="none";
+               p5.innerHTML="";
+               nickPossible=false;
+            }
+            else{
+            for(var i=0; i<nickArr.length; i++){
+               if(nickSector.value==nickArr[i]){
+                  nickSector.style.border="1px solid red";
+                  p5.style.display="block";
+                  p5.innerHTML="이미 사용 중인 닉네임입니다.";
+                  nickPossible=false;
+                  break;
+               }
+               for(var j=0; j<reNickArr.length; j++){
+            	   if(nickSector.value==reNickArr[j]){
+            		   nickSector.style.border="1px solid red";
+                       p5.style.display="block";
+                       p5.innerHTML="이미 사용 중인 닉네임입니다.";
+                       nickPossible=false;
+                       breakpoint="yes";
+                       break;
+            	   }
+               }
+               if(breakpoint=="yes"){
+            	   break;
+               }
+               else if(breakpoint="no"){
+            	   nickSector.style.border="1px solid green";
+                   p5.style.display="block";
+                   p5.innerHTML="사용 가능한 닉네임입니다.";
+                   nickPossible=true;
+
+               }
+             }   
+            }
+         })
+         
          sign.addEventListener("click",function(){
-            if((emailPossible==true)&&(passPossible==true)){
+            if((emailPossible==true)&&(passPossible==true)&&(nickPossible==true)){
                form.submit();
             }
             else{
                alert("아직 승인되지 않은 정보가 있습니다. 입력정보를 확인하세요!");
             }
          })         
+        
+       
+         
          
       </script>
       

@@ -10,7 +10,7 @@ public class RegisterDAO {
 	
 	final String USER_INSERT="insert into membertbl values(?, ?, ?);";
 	final String USER_LIST="select * from membertbl;";
-	final String EXPERT_INSERT="insert into registerexperttbl values(?,?);";
+	final String EXPERT_INSERT="insert into registerexperttbl values(?,?,?);";
 	final String EXPERT_LIST="select * from experttbl";
 	final String REXPERT_LIST="select * from registerexperttbl";
 	final String PRODUCER_INSERT="insert into registerproducertbl values(?,?,?,?);";
@@ -104,6 +104,7 @@ public class RegisterDAO {
 		pstmt=conn.prepareStatement(EXPERT_INSERT);
 		pstmt.setString(1,makeId(mem.getMemberidfront(),mem.getMemberidback(),mem.getMemberidbackself()));
 		pstmt.setString(2,mem.getPassword());
+		pstmt.setString(3,mem.getNickname());
 		pstmt.executeUpdate();
 		JDBCUtil.close(pstmt, conn);
 	}
@@ -117,6 +118,7 @@ public class RegisterDAO {
 			RegisterDTO rd=new RegisterDTO();			
 			rd.setMemberid(rs.getString("expertid"));
 			rd.setPassword(rs.getString("password"));
+			rd.setNickname(rs.getString("nickname"));
 			aList.add(rd);
 		}
 		JDBCUtil.close(pstmt, conn);
@@ -134,6 +136,7 @@ public class RegisterDAO {
 			RegisterDTO rd=new RegisterDTO();			
 			rd.setMemberid(rs.getString("expertid"));
 			rd.setPassword(rs.getString("password"));
+			rd.setNickname(rs.getString("nickname"));
 			aList.add(rd);
 		}
 		JDBCUtil.close(pstmt, conn);

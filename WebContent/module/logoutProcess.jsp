@@ -8,7 +8,11 @@
 	session.setAttribute("idCheckVisible", "visibility:hidden");
 	session.setAttribute("passwordCheckVisible", "visibility:hidden");
 	session.setAttribute("loginChecked","no");
+	session.setAttribute("expertLoginCheck","no");
+	session.setAttribute("producerLoginCheck","no");
 	session.setAttribute("loginid", null);
+	session.setAttribute("expertLoginid", null);
+	session.setAttribute("producerLoginid", null);
 %> 
 <!DOCTYPE html>
 <html>
