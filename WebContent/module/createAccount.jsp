@@ -24,7 +24,7 @@
     margin: auto;
     margin-top: 20px;
     width: 420px;
-    height: 930px;
+    height: auto;
     border: solid 4px #900020;
     border-radius: 21px;
     background: white;

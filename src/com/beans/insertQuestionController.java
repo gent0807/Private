@@ -35,6 +35,7 @@ public class insertQuestionController extends HttpServlet {
 		
 		String saveDirectory=request.getServletContext().getRealPath("/uploads");
 		
+		
 		ServletContext application=getServletContext();
 		int maxPostSize=Integer.parseInt(application.getInitParameter("maxPostSize"));
 		
@@ -45,7 +46,7 @@ public class insertQuestionController extends HttpServlet {
 		}
 		
 		HttpSession session=request.getSession();
-		
+		session.setAttribute("saveDirectory",saveDirectory);
 		String nick=null;
 		String expertnick=null;
 		

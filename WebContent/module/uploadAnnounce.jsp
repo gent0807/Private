@@ -123,9 +123,12 @@
    <hr>
    <div class="box3">
       <div class="box4">
-         <form id="form" method="post" action="insertAnnounce.do">      
+         <form id="form" method="post" enctype="multipart/form-data" action="insertAnnounce.do">      
          		<input type="text" class="fct" name="title" placeholder="제목을 입력해주세요." maxlength="50"><hr id="hr1">     		
                 <textarea class="fct2" name="content" placeholder="내용을 입력해주세요." maxlength="2048" style="height: 450px;"></textarea>
+                 <div style="text-align:left">
+                	<input  type="file" name="ofile">
+                </div>
          </form>
       </div>
    </div>

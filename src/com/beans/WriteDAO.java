@@ -16,7 +16,7 @@ public class WriteDAO {
 	
 	final String Q_INSERT="insert into questiontbl values(null, ?, ?, ?, ?, SYSDATE(), ?, ?, DEFAULT);";
 	final String Q_LIST="select * from questiontbl order by idx desc;";
-	final String A_INSERT="insert into announcetbl values(null, ?, ?, ?, SYSDATE(), DEFAULT);";
+	final String A_INSERT="insert into announcetbl values(null, ?, ?, ?, SYSDATE(), ?, ?, DEFAULT);";
 	final String A_LIST="select * from announcetbl order by idx desc;";
 	
 	public void insertQuestion(WriteDTO wt) throws SQLException {
@@ -104,6 +104,8 @@ public class WriteDAO {
 		pstmt.setString(1, wt.getTitle());
 		pstmt.setString(2, wt.getContent());
 		pstmt.setString(3, wt.getNick());
+		pstmt.setString(4, wt.getOfile());
+		pstmt.setString(5, wt.getSfile());
 		pstmt.executeUpdate();
 		JDBCUtil.close(pstmt, conn);
 	}
@@ -120,6 +122,8 @@ public class WriteDAO {
 			wt.setContent(rs.getString("content"));
 			wt.setNick(rs.getString("nick"));
 			wt.setPostdate(rs.getDate("postdate"));
+			wt.setOfile(rs.getString("ofile"));
+			wt.setSfile(rs.getString("sfile"));
 			wt.setVisitcount(rs.getInt("visitcount"));
 			aList.add(wt);
 		}
@@ -183,6 +187,86 @@ public class WriteDAO {
 		return QList;
 		
 	}
+	
+	public WriteDTO selectAView(String idx) {
+		WriteDTO wt=new WriteDTO();
+		String query="SELECT * FROM announcetbl where idx=?";
+		try {
+			conn=JDBCUtil.getConnection();
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1,idx);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				wt.setIdx(rs.getInt(1));
+				wt.setTitle(rs.getString(2));
+				wt.setContent(rs.getString(3));
+				wt.setNick(rs.getString(4));
+				wt.setPostdate(rs.getDate(5));
+				wt.setOfile(rs.getString(6));
+				wt.setSfile(rs.getString(7));
+				wt.setVisitcount(rs.getInt(8));
+			}
+		}
+		catch(Exception e) {
+			System.out.println("게시물 상세보기 중 예외 발생");
+			e.printStackTrace();
+		}
+		return wt;
+	}
+	
+	public WriteDTO selectQView(String idx) {
+		WriteDTO wt=new WriteDTO();
+		String query="SELECT * FROM questiontbl where idx=?";
+		try {
+			conn=JDBCUtil.getConnection();
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1,idx);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				wt.setIdx(rs.getInt(1));
+				wt.setTitle(rs.getString(2));
+				wt.setContent(rs.getString(3));
+				wt.setNick(rs.getString(4));
+				wt.setExpertnick(rs.getString(5));
+				wt.setPostdate(rs.getDate(6));
+				wt.setOfile(rs.getString(7));
+				wt.setSfile(rs.getString(8));
+				wt.setVisitcount(rs.getInt(9));
+			}
+		}
+		catch(Exception e) {
+			System.out.println("게시물 상세보기 중 예외 발생");
+			e.printStackTrace();
+		}
+		return wt;
+	}
+	
+	
+	public void updateVisitCount(String idx) throws SQLException {
+		conn=JDBCUtil.getConnection();
+		String query="UPDATE questiontbl SET visitcount=visitcount+1 where idx=?";
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, idx);
+		pstmt.executeUpdate();
+	}
+	
+	public int deleteQ(String idx) {
+		int result=0;
+		String query="DELETE * FROM questiontbl where idx=?";
+		try {
+			conn=JDBCUtil.getConnection();
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1,idx);
+			result=pstmt.executeUpdate();
+			
+		}
+		catch(Exception e) {
+			System.out.println("게시물 상세보기 중 예외 발생");
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 	
 	
 	

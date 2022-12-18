@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path=(String)session.getAttribute("saveDirectory");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,7 +102,7 @@
 		}
 	#pic1{
 			position:absolute;
-			margin-left: 20px;
+			margin-left: 700px;
 			margin-top: -52px;
 			width: 120px;
 			height: 100px;
@@ -171,41 +174,46 @@
   	<br>
   	
   	<c:forEach items="${aList}" var="announceList">
-  	 <div class="box3" style="cursor:pointer"onclick="location.href='privateHome.jsp?CONTENTPAGE=detailAnnounce.jsp&FIXSECTOR=community&FIXSECTORSUB=communityQNA'">
-  	  	<div class="box4">
+  	 <div class="box3">
+  	  	<div class="box4" style="cursor:pointer" onclick="location.href='ViewDetailA.do?idx=${announceList.idx}'">
   	  			<img id="notice1" src="img/notice.png" style="width: 25px; height: 25px; vertical-align:middle;">
 				<span class="spantext">${announceList.title}</span>
 				<hr>
   	  	</div>
   	 </div>
+	</c:forEach>	
+	
+	<c:forEach items="${qList}" var="questionList">
+  	 <div class="box3">
+  	  	<div class="box5" style="cursor:pointer" onclick="location.href='ViewDetailQ.do?idx=${questionList.idx}'">
+  	  			<span id="span1">${questionList.title}</span>
+				<div style="width:680px;">${questionList.content}</div>
+				<span><img src="<%=request.getContextPath() %>/uploads/${questionList.sfile}" id="pic1"></span><br><br>
+				<c:choose>
+					<c:when test="${questionList.expertnick==null}">
+						<img id="profile1" src="img/profile1.png" style="width: 30px; height: 30px; vertical-align:middle;">
+					</c:when>
+					<c:when test="${questionList.expertnick!=null}">
+						<img id="profile2" src="img/profile2.png" style="width: 30px; height: 30px; vertical-align:middle;">
+					</c:when>
+				</c:choose>
+				
+				<c:choose>
+					<c:when test="${questionList.expertnick==null}">
+						<span class="spantext">${questionList.nick}</p>
+					</c:when>
+					<c:when test="${questionList.expertnick!=null}">
+						<span class="spantext">${questionList.expertnick}</p>
+					</c:when>
+				</c:choose>
+				<p>조회수: ${questionList.visitcount}</p>
+				<p>${questionList.postdate}</p>
+				<hr>
+  	  	</div>
+  	 </div>
 	</c:forEach>
 	
-	 <div class="box3">
-	  <div class="box5">
-		<span id="span1">집이 무너졌어요 도움좀 주세요</span>
-		<p id="p1">제가 일부러 그런게 아니라 용가리 치킨이 너무 먹고 싶어서
-			집에 아무도 없는 기회를 틈 타 <br>야무지게 구웠거든요 ㅠㅠ 근데 용가리 치킨이
-			아니라 저희 집이 구워졌는데 이거 어떡해요?
-			<span><img src="img/dbhouse.png" id="pic1"></span><br><br>
-			<img id="profile1" src="img/profile1.png" style="width: 30px; height: 30px;">
-			<span class="spantext">지존동빈</span>
-		</p>
-		<hr>
-	 </div>
-	 </div>
-	 <div class="box3">
-	  <div class="box5">
-		<span id="span1">다들 침실 인테리어 어떻게 하셨나요?</span>
-		<p id="p1">최근에 인테리어를 전부 리모델링 하려고 계획중인 집순이에용 거실은 엊그제
-			마무리 했고....<br>이제 가장 중요한 침실을 해야합니다! 아무래도 하루의 마무리를
-			침실에서 하게 되잖아요?.....
-			<span><img src="img/room4.jpg" id="pic1"></span><br><br>
-			<img id="profile2" src="img/profile2.png" style="width: 30px; height: 30px;">
-			<span class="spantext">태정태세비욘세</span>
-		</p>
-		<hr>
-	 </div>
-	 </div>
+	
 	 <script>
 	 let button=document.getElementById("btn1");
 	 let producerLoginCheck='${producerLoginCheck}';

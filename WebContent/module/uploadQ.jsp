@@ -125,7 +125,7 @@
    <div class="box2">
       <p id="text1">🗒️ 질문과 답변 글 작성 가이드</p><br>
       <div class="box5" style="text-align:left;">
-         <li id="li1">참고가 되는 사진을 같이 공유해주시면 더 좋은 답변을 얻을 수 있습니다.</li>
+         <li id="li1">참고가 되는 사진을 꼭 첨부하여 공유해주세요!!</li>
          <li id="li2">욕설이나 비속어가 적힌 게시글은 경고 없이 삭제됩니다.</li>
          <li id="li3">인테리어와 관련 없는 질문은 숨김 및 삭제될 수 있습니다.</li>
          <li id="li4">상품/배송 등 쇼핑 관련 문의는 <span id="span2">고객센터</span>에서 요청해주세요.</li>

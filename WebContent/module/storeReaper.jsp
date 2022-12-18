@@ -5,10 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Private</title>
+<style>
+   .box1{
+   width: 1080px;
+   height: auto;
+   }
+</style>
 </head>
 <body>
-    <div>
-        <h1>스토어 리퍼마켓 페이지입니다.</h1>
+    <div id="box1">
+        <img src="img/reaper.gif" id="pic1"><br>
+      <img src="img/reaper.PNG" id="pic2"><br>
+      <img src="img/reaper2.PNG" id="pic3"><br>
+      <img src="img/reaper3.PNG" id="pic4"><br>
+      <img src="img/reaper4.PNG" id="pic5"><br>            
+      
     </div>
 </body>
 </html>
