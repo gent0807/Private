@@ -10,7 +10,7 @@
 <jsp:useBean class="com.beans.RegisterDTO" id="firstBowl" scope="session"/>
 <jsp:useBean class="com.beans.RegisterDAO" id="firstConnect" scope="session"/>
 <!DOCTYPE html>
-<html>
+<html>	
 <head>
 <meta charset="UTF-8">
 <style type="text/css">
